@@ -82,8 +82,8 @@ namespace Toast2._0_SH19
             disgust,
             sadness,
             surprise;
-    } 
-        
+    }
+
     class Analyze
     {
         List<wordE> wordEs;
@@ -119,8 +119,7 @@ namespace Toast2._0_SH19
             {
                 foreach (var emotion in wordEs)
                 {
-                    if (word.Contains(emotion.e))
-                    {
+                    if (word.Contains(emotion.e)) {
                         switch (emotion.word)
                         {
                             case "joy":
@@ -169,6 +168,19 @@ namespace Toast2._0_SH19
                 tempList.size++;
             }
             return tempList;
+        }
+        public Dictionary<string, double> getPersonaities(TTweetList _list)
+        {
+            var map = new Dictionary<string, double>();
+
+            double joyN = _list.joy / _list.size;
+            double fearN = _list.fear / _list.size;
+            double angerN = _list.anger / _list.size;
+            double disgustN = _list.disgust / _list.size;
+            double sadnessN = _list.sadness / _list.size;
+            double surpriseN = _list.surprise / _list.size;
+            
+            return map;
         }
     }
 }
