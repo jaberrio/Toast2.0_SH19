@@ -148,7 +148,7 @@ namespace Toast2._0_SH19
             }*/
         }
         //public List
-    }
+    
     
         public Dictionary<string, double> getPersonaities(TTweetList _list)
         {
