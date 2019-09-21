@@ -74,6 +74,7 @@ namespace Toast2._0_SH19
 
             foreach (var word in words)
             {
+                countWord(word);
                 foreach (var emotion in wordEs)
                 {
                     if (word.Contains(emotion.e)){
@@ -123,7 +124,29 @@ namespace Toast2._0_SH19
                 tempList.sadness += f.sadness;
 
             }
+            //sort();
             return tempList;
         }
+        private Dictionary<string, int> wordCountList = new Dictionary<string, int>();
+       // private Array[,] topTen = new Array[10, 2];
+        public void countWord(string word)
+        {
+            if (wordCountList.ContainsKey(word))
+                wordCountList[word]++;
+            else
+                wordCountList[word] = 1;
+            //private
+            //return wordCountList;
+        }
+        public void  sort()
+        {/*
+            wordCountList.OrderByDescending<string, int>
+            foreach (KeyValuePair<string, int> pair in wordCountList)
+            {
+                Console.WriteLine("{0}: {1}", pair.Key, pair.Value);
+            }*/
+        }
+        //public List
     }
+    
 }
