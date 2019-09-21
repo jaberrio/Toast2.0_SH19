@@ -150,6 +150,8 @@ namespace Toast2._0_SH19
 
         }
         
+
+
         public TTweetList AnalyzeList(IEnumerable<ITweet> tweets, IUser user)
         {
             var tempList = new TTweetList();
@@ -169,6 +171,7 @@ namespace Toast2._0_SH19
             }
             return tempList;
         }
+
         public Dictionary<string, double> getPersonaities(TTweetList _list)
         {
             var map = new Dictionary<string, double>();
