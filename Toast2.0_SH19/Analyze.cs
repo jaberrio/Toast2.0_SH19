@@ -220,8 +220,6 @@ namespace Toast2._0_SH19
             return tempList;
         }
 
-        public Dictionary<string, double> getPersonalities(TTweetList _list)
-
         private Dictionary<string, int> wordCountList = new Dictionary<string, int>();
         
         public void countWord(string word)
