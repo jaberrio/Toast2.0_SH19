@@ -11,6 +11,16 @@ namespace Toast2._0_SH19
 {
     class TTweet
     {
+        public class subjectivity{
+            public bool strong = false;
+            public bool positive = false;
+
+            public subjectivity(bool strong, bool positive)
+            {
+                this.strong = strong;
+                this.positive = positive;
+            }
+        };
         public
             int 
             joy,
@@ -21,6 +31,32 @@ namespace Toast2._0_SH19
             surprise;
         public ITweet t;
         public int numWords;
+        public List<subjectivity> subjectivities;
+
+        public enum positive { ALL = 2, POSITIVE = 1, NEGATIVE = 0};
+        public enum strong { ALL = 2,STRONG = 1, WEAK = 0};
+
+        public positive pos;
+        public strong str;
+        public int getSubHits(positive p ,strong s)
+        {
+            int count = 0;
+            foreach (var item in subjectivities)
+            {
+                //POSITIVE POSTIVE
+                if (item.positive == true && (p == positive.POSITIVE || p == positive.ALL))
+                {
+                    if(item.strong == true  && (s == strong.STRONG  || s == strong.ALL))count++;
+                    if(item.strong == false && (s == strong.WEAK    || s == strong.ALL))count++;
+                }
+                if (item.strong == false && (p == positive.NEGATIVE || p == positive.ALL))
+                {
+                    if (item.strong == true && (s == strong.STRONG || s == strong.ALL)) count++;
+                    if (item.strong == false && (s == strong.WEAK || s == strong.ALL)) count++;
+                }
+            }
+            return 0;
+        }
     }
 
     class wordE
@@ -33,6 +69,20 @@ namespace Toast2._0_SH19
             this.word = word;
         }
         
+    }
+
+    class wordSb
+    {
+        public string word;
+        public string subj;
+        public string posneg;
+
+        public wordSb(string word, string subj, string posneg)
+        {
+            this.word = word;
+            this.subj = subj;
+            this.posneg = posneg;
+        }
     }
 
     class TTweetList
@@ -53,10 +103,13 @@ namespace Toast2._0_SH19
     class Analyze
     {
         List<wordE> wordEs;
+        List<wordSb> wordSbs;
 
         public Analyze()
         {
             wordEs = new List<wordE>(1000);
+            wordSbs = new List<wordSb>(1000);
+
             string line;
             StreamReader file = new System.IO.StreamReader("DataClassify/emotions.csv");
             while ((line = file.ReadLine()) != null)
@@ -64,8 +117,15 @@ namespace Toast2._0_SH19
                 var s = line.Split(',');
                 wordEs.Add(new wordE(s[0], s[1]));
             }
-        }
 
+            file = new System.IO.StreamReader("DataClassify/subjectivity.csv");
+            while ((line = file.ReadLine()) != null)
+            {
+                var s = line.Split(',');
+                wordSbs.Add(new wordSb(s[0],s[1],s[2]));
+            }
+        }
+        
         public TTweet AnalyzeSingle(ITweet tweet)
         {
             TTweet temp = new TTweet();
@@ -73,8 +133,18 @@ namespace Toast2._0_SH19
             string[] words = tweet.Text.Split(' ');
             temp.numWords = words.Length;
 
+            //Pulls out 6 emotionalChar of a tweet
+            pullSixOut(words, temp);
+            pullSubjectiviityOut(words, temp);
+            return temp;
+        }
+
+        //Updates the tweets score of the 6 traits based on emotions
+        public void pullSixOut(string[] words, TTweet temp)
+        {
             foreach (var word in words)
             {
+                countWord(word);
                 foreach (var emotion in wordEs)
                 {
                     if (word.Contains(emotion.e)) {
@@ -105,8 +175,26 @@ namespace Toast2._0_SH19
                     }
                 }
             }
-            return temp;
+
         }
+        
+        public void pullSubjectiviityOut(string[] words, TTweet temp)
+        {
+            foreach (var tweet_word in words)
+            {
+                foreach (var word_dic in wordSbs)
+                {
+                    if (tweet_word.Contains(word_dic.word))
+                    {
+                        temp.pos = (word_dic.posneg.Contains("positive")) ? TTweet.positive.POSITIVE : TTweet.positive.NEGATIVE;
+                        temp.str = (word_dic.posneg.Contains("strongsubj")) ? TTweet.strong.STRONG : TTweet.strong.WEAK;
+                        break;
+                    }
+                }
+            }
+        }
+
+
         public TTweetList AnalyzeList(IEnumerable<ITweet> tweets, IUser user)
         {
             var tempList = new TTweetList();
@@ -124,10 +212,29 @@ namespace Toast2._0_SH19
                 tempList.sadness += f.sadness;
                 tempList.size++;
             }
+
+            //Sort the world
+            wordCountList = wordCountList.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            
+
             return tempList;
         }
 
         public Dictionary<string, double> getPersonalities(TTweetList _list)
+
+        private Dictionary<string, int> wordCountList = new Dictionary<string, int>();
+        
+        public void countWord(string word)
+        {
+            if (wordCountList.ContainsKey(word))
+                wordCountList[word]++;
+            else
+                wordCountList[word] = 1;
+            
+        }
+    
+    
+        public Dictionary<string, double> getPersonaities(TTweetList _list)
         {
             var map = new Dictionary<string, double>();
 
