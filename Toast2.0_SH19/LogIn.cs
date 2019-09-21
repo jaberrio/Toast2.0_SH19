@@ -54,6 +54,8 @@ namespace Toast2._0_SH19
             var us = User.GetUserFromScreenName(userName.Text);
 
             label1.Text = us.Name;
+            followers.Text = "Followers: " + us.FollowersCount.ToString();
+            following.Text = "Following: " + us.FriendsCount.ToString();
 
             var utp = new UserTimelineParameters
             {
@@ -68,9 +70,20 @@ namespace Toast2._0_SH19
             System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
             pictureBox.Image = img;
             pictureBox.Update();
+
+            foreach (var item in tweets)
+            {
+                listView1.Items.Add(item.Text);
+            }
+            
         }
 
         private void pin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void followers_Click(object sender, EventArgs e)
         {
 
         }
