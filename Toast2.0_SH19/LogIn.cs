@@ -59,7 +59,7 @@ namespace Toast2._0_SH19
 
             var utp = new UserTimelineParameters
             {
-                MaximumNumberOfTweetsToRetrieve = 500
+                MaximumNumberOfTweetsToRetrieve = 1000
             };
 
             var tweets = Timeline.GetUserTimeline(us, utp);
@@ -165,26 +165,26 @@ namespace Toast2._0_SH19
 
         private void pictureBox2_MouseEnter(object sender, EventArgs e)
         {
-            Image temp = new Bitmap("Photos/-22.png");
             this.pictureBox2.BackgroundImage = temp;
         }
+            Image temp = new Bitmap("Photos/-22.png");
+            Image temp3 = new Bitmap("Photos/-.png");
+            Image temp2 = new Bitmap("Photos/x22.png");
+            Image temp1 = new Bitmap("Photos/x2.png");
 
         private void pictureBox2_MouseLeave(object sender, EventArgs e)
         {
-            Image temp = new Bitmap("Photos/-.png");
-            this.pictureBox2.BackgroundImage = temp;
+            this.pictureBox2.BackgroundImage = temp3;
         }
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
-            Image temp = new Bitmap("Photos/x22.png");
-            this.pictureBox1.BackgroundImage = temp;
+            this.pictureBox1.BackgroundImage = temp2;
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            Image temp = new Bitmap("Photos/x2.png");
-            this.pictureBox1.BackgroundImage = temp;
+            this.pictureBox1.BackgroundImage = temp1;
         }
 
         private void sadnessLabel_Click(object sender, EventArgs e)
