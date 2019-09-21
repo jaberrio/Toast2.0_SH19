@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tweetinvi;
 
 namespace Toast2._0_SH19
 {
@@ -26,10 +27,20 @@ namespace Toast2._0_SH19
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void enter_Click(object sender, EventArgs e)
         {
-            oath o = new oath();
+            
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void requestPin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
