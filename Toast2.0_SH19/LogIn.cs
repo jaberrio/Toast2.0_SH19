@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tweetinvi;
 
 namespace Toast2._0_SH19
 {
@@ -29,15 +30,17 @@ namespace Toast2._0_SH19
         
         private void enter_Click(object sender, EventArgs e)
         {
-            if (username.Text.Length == 0 || password.Text.Length == 0)
-            {
-                error.Text = "You must complete both fields";
-            }
+            
         }
 
         private void label1_Click_1(object sender, EventArgs e)
         {
             
+        }
+
+        private void requestPin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
