@@ -98,6 +98,9 @@ namespace Toast2._0_SH19
             disgust,
             sadness,
             surprise;
+        public
+            double 
+            tweetLength;
     }
 
     class Analyze
@@ -199,19 +202,24 @@ namespace Toast2._0_SH19
         {
             var tempList = new TTweetList();
             var temp = new List<TTweet>();
+            int tweetCounter = 0;
+            int wordCounter = 0;
             foreach (var item in tweets)
             {
                 //Need to account for word and text lenght missing from TTWEET
                 TTweet f = AnalyzeSingle(item);
                 temp.Add(f);
+                wordCounter += f.numWords;
                 tempList.anger += f.anger;
                 tempList.disgust += f.disgust;
                 tempList.fear += f.fear;
                 tempList.joy += f.joy;
                 tempList.surprise += f.surprise;
                 tempList.sadness += f.sadness;
-                
+                tweetCounter++;
             }
+
+            tempList.tweetLength = wordCounter / tweetCounter;
 
             tempList.size = 
                 tempList.anger + tempList.disgust + tempList.fear + tempList.joy + tempList.surprise + tempList.sadness;
