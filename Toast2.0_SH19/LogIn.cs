@@ -60,7 +60,7 @@ namespace Toast2._0_SH19
 
             var utp = new UserTimelineParameters
             {
-                MaximumNumberOfTweetsToRetrieve = 1000
+                MaximumNumberOfTweetsToRetrieve = 500
             };
 
             var tweets = Timeline.GetUserTimeline(us, utp);
@@ -74,13 +74,13 @@ namespace Toast2._0_SH19
             pictureBox.BackColor = Color.Transparent;
             pictureBox.BorderStyle = BorderStyle.None;
 
+            listView1.Items.Clear();
+
             foreach (var item in tweets)
             {
                 listView1.Items.Add(item.Text);
             }
-            
-
-
+        
             Analyze a = new Analyze();
             var z = a.AnalyzeList(tweets, us);
             joyLabel.Text = "Joy: " + z.joy;
