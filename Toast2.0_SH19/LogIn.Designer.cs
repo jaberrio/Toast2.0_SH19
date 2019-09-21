@@ -47,8 +47,8 @@
             // 
             // userName
             // 
-            this.userName.Location = new System.Drawing.Point(20, 97);
-            this.userName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userName.Location = new System.Drawing.Point(22, 74);
+            this.userName.Margin = new System.Windows.Forms.Padding(4);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(189, 22);
             this.userName.TabIndex = 2;
@@ -68,8 +68,8 @@
             // requestPin
             // 
             this.requestPin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            this.requestPin.Location = new System.Drawing.Point(22, 149);
-            this.requestPin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.requestPin.Location = new System.Drawing.Point(20, 106);
+            this.requestPin.Margin = new System.Windows.Forms.Padding(6);
             this.requestPin.Name = "requestPin";
             this.requestPin.Size = new System.Drawing.Size(188, 37);
             this.requestPin.TabIndex = 6;
@@ -80,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 126);
+            this.label1.Location = new System.Drawing.Point(19, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 17);
             this.label1.TabIndex = 7;
@@ -90,8 +90,8 @@
             // 
             this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(22, 461);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox.Location = new System.Drawing.Point(20, 239);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(201, 207);
             this.pictureBox.TabIndex = 10;
@@ -106,7 +106,7 @@
             this.Tweets});
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(260, 238);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(452, 208);
             this.listView1.TabIndex = 11;
@@ -121,7 +121,7 @@
             // followers
             // 
             this.followers.AutoSize = true;
-            this.followers.Location = new System.Drawing.Point(12, 158);
+            this.followers.Location = new System.Drawing.Point(19, 158);
             this.followers.Name = "followers";
             this.followers.Size = new System.Drawing.Size(75, 17);
             this.followers.TabIndex = 12;
@@ -131,7 +131,7 @@
             // following
             // 
             this.following.AutoSize = true;
-            this.following.Location = new System.Drawing.Point(12, 186);
+            this.following.Location = new System.Drawing.Point(20, 186);
             this.following.Name = "following";
             this.following.Size = new System.Drawing.Size(74, 17);
             this.following.TabIndex = 13;
@@ -142,7 +142,7 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(693, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(72, 34);
             this.pictureBox1.TabIndex = 15;
@@ -154,7 +154,7 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(626, 6);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(72, 34);
             this.pictureBox2.TabIndex = 16;
@@ -181,7 +181,7 @@
             this.Controls.Add(this.error);
             this.Controls.Add(this.userName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "LogIn";
             this.Text = "Emotion Tracker";
             this.Load += new System.EventHandler(this.LogIn_Load);

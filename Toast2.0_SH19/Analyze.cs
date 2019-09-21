@@ -35,6 +35,20 @@ namespace Toast2._0_SH19
         
     }
 
+    class TTweetList
+    {
+        public IEnumerable<TTweet> ttweets;
+        //Aggrigate score
+        public
+            int
+            joy,
+            fear,
+            anger,
+            disgust,
+            sadness,
+            surprise;
+    } 
+        
     class Analyze
     {
         List<wordE> wordEs;
@@ -92,14 +106,24 @@ namespace Toast2._0_SH19
             }
             return temp;
         }
-        public IEnumerable<TTweet> AnalyzeList(IEnumerable<ITweet> tweets, IUser user)
+        public TTweetList AnalyzeList(IEnumerable<ITweet> tweets, IUser user)
         {
+            var tempList = new TTweetList();
             var temp = new List<TTweet>();
             foreach (var item in tweets)
             {
-                temp.Add(AnalyzeSingle(item));
+                //Need to account for word and text lenght missing from TTWEET
+                TTweet f = AnalyzeSingle(item);
+                temp.Add(f);
+                tempList.anger += f.anger;
+                tempList.disgust += f.disgust;
+                tempList.fear += f.fear;
+                tempList.joy += f.joy;
+                tempList.surprise += f.surprise;
+                tempList.sadness += f.sadness;
+
             }
-            return temp;
+            return tempList;
         }
     }
 }
