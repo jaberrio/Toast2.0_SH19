@@ -210,8 +210,12 @@ namespace Toast2._0_SH19
                 tempList.joy += f.joy;
                 tempList.surprise += f.surprise;
                 tempList.sadness += f.sadness;
-                tempList.size++;
+                
             }
+
+            tempList.size = 
+                tempList.anger + tempList.disgust + tempList.fear + tempList.joy + tempList.surprise + tempList.sadness;
+
 
             //Sort the world
             wordCountList = wordCountList.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
@@ -219,8 +223,7 @@ namespace Toast2._0_SH19
 
             return tempList;
         }
-
-        public Dictionary<string, double> getPersonalities(TTweetList _list)
+        
 
         private Dictionary<string, int> wordCountList = new Dictionary<string, int>();
         
