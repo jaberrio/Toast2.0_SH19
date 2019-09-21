@@ -16,6 +16,7 @@ using Tweetinvi.Parameters;
 
 namespace Toast2._0_SH19
 {
+
     public partial class LogIn : Form
     {
 
@@ -116,6 +117,27 @@ namespace Toast2._0_SH19
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+        Point mouseDownPoint = Point.Empty;
+        private void LogIn_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDownPoint = new Point(e.X, e.Y);
+        }
+
+        private void LogIn_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDownPoint.IsEmpty)
+                return;
+            else if (e.Y < 30)
+            {
+                Form f = sender as Form;
+                f.Location = new Point(f.Location.X + (e.X - mouseDownPoint.X), f.Location.Y + (e.Y - mouseDownPoint.Y));
+            }
+         }
+
+        private void LogIn_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDownPoint = Point.Empty;
         }
     }
 }

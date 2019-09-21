@@ -48,7 +48,7 @@
             // userName
             // 
             this.userName.Location = new System.Drawing.Point(20, 97);
-            this.userName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userName.Margin = new System.Windows.Forms.Padding(4);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(374, 38);
             this.userName.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             this.requestPin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.requestPin.Location = new System.Drawing.Point(22, 149);
-            this.requestPin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.requestPin.Margin = new System.Windows.Forms.Padding(6);
             this.requestPin.Name = "requestPin";
             this.requestPin.Size = new System.Drawing.Size(376, 72);
             this.requestPin.TabIndex = 6;
@@ -92,7 +92,7 @@
             this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox.Location = new System.Drawing.Point(22, 461);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(400, 400);
             this.pictureBox.TabIndex = 10;
@@ -179,10 +179,13 @@
             this.Controls.Add(this.error);
             this.Controls.Add(this.userName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "LogIn";
             this.Text = "Emotion Tracker";
             this.Load += new System.EventHandler(this.LogIn_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LogIn_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LogIn_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LogIn_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
