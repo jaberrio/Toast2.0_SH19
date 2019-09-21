@@ -16,5 +16,15 @@ namespace Toast2._0_SH19
         {
             InitializeComponent();
         }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
