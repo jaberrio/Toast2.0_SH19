@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tweetinvi;
 using Tweetinvi.Models;
+using System.Net;
+using System.IO;
 using Tweetinvi.Parameters;
 
 namespace Toast2._0_SH19
@@ -58,6 +60,12 @@ namespace Toast2._0_SH19
 
             var tweets = Timeline.GetUserTimeline(us, utp);
             
+            WebClient wc = new WebClient();
+            byte[] bytes = wc.DownloadData(us.ProfileImageUrl);
+            MemoryStream ms = new MemoryStream(bytes);
+            System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+            pictureBox.Image = img;
+            pictureBox.Update();
         }
 
         private void pin_TextChanged(object sender, EventArgs e)
