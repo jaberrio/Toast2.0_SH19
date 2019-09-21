@@ -33,17 +33,19 @@
             this.password = new System.Windows.Forms.TextBox();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
+            this.error = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // enter
             // 
             this.enter.Location = new System.Drawing.Point(661, 490);
-            this.enter.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.enter.Margin = new System.Windows.Forms.Padding(6);
             this.enter.Name = "enter";
             this.enter.Size = new System.Drawing.Size(186, 72);
             this.enter.TabIndex = 0;
             this.enter.Text = "Log In";
             this.enter.UseVisualStyleBackColor = true;
+            this.enter.Click += new System.EventHandler(this.enter_Click);
             // 
             // username
             // 
@@ -78,17 +80,28 @@
             this.passwordLabel.TabIndex = 4;
             this.passwordLabel.Text = "Twitter Password";
             // 
+            // error
+            // 
+            this.error.AutoSize = true;
+            this.error.ForeColor = System.Drawing.Color.Red;
+            this.error.Location = new System.Drawing.Point(570, 598);
+            this.error.Name = "error";
+            this.error.Size = new System.Drawing.Size(0, 32);
+            this.error.TabIndex = 5;
+            this.error.Click += new System.EventHandler(this.label1_Click_1);
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 872);
+            this.Controls.Add(this.error);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.password);
             this.Controls.Add(this.username);
             this.Controls.Add(this.enter);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "LogIn";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.LogIn_Load);
@@ -104,6 +117,7 @@
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Label error;
     }
 }
 
