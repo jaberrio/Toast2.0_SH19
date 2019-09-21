@@ -82,7 +82,12 @@ namespace Toast2._0_SH19
 
 
             Analyze a = new Analyze();
-            a.AnalyzeList(tweets, us);
+            var z = a.AnalyzeList(tweets, us);
+            joyLabel.Text = "Joy: " + z.joy;
+            fearLabel.Text = "Fear: " + z.fear;
+            disgustLabel.Text = "Disgust: " + z.disgust;
+            surpriseLabel.Text = "Surprise: " + z.surprise;
+            sadnessLabel.Text = "Sadness: " + z.sadness;
 
         }
 
