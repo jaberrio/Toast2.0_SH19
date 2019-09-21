@@ -92,15 +92,12 @@ namespace Toast2._0_SH19
 
 
             chart1.Series["Data1"].Points.Clear();
-
-
-
-            chart1.Series["Data1"].Points.Add(0, z.joy);
-            chart1.Series["Data1"].Points.Add(1, z.fear);
-            chart1.Series["Data1"].Points.Add(2, z.disgust);
-            chart1.Series["Data1"].Points.Add(3, z.surprise);
-            chart1.Series["Data1"].Points.Add(4, z.sadness);
-            chart1.Series["Data1"].Points.Add(5, z.anger);
+            chart1.Series["Data1"].Points.AddXY(0, z.joy);
+            chart1.Series["Data1"].Points.AddXY(1, z.fear);
+            chart1.Series["Data1"].Points.AddXY(2, z.disgust);
+            chart1.Series["Data1"].Points.AddXY(3, z.surprise);
+            chart1.Series["Data1"].Points.AddXY(4, z.sadness);
+            chart1.Series["Data1"].Points.AddXY(5, z.anger);
 
         }
 
@@ -223,6 +220,11 @@ namespace Toast2._0_SH19
         }
 
         private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
