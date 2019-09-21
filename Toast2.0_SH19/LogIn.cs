@@ -52,52 +52,63 @@ namespace Toast2._0_SH19
 
 
             var us = User.GetUserFromScreenName(userName.Text);
-
-            label1.Text = us.Name;
-            followers.Text = "Followers: " + us.FollowersCount.ToString();
-            following.Text = "Following: " + us.FriendsCount.ToString();
-
-            var utp = new UserTimelineParameters
-            {
-                MaximumNumberOfTweetsToRetrieve = 1000
-            };
-
-            var tweets = Timeline.GetUserTimeline(us, utp);
-            
-            WebClient wc = new WebClient();
-            byte[] bytes = wc.DownloadData(us.ProfileImageUrlFullSize);
-            MemoryStream ms = new MemoryStream(bytes);
-            System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
-            pictureBox.Image = img;
-            pictureBox.Update();
-            pictureBox.BackColor = Color.Transparent;
-            pictureBox.BorderStyle = BorderStyle.None;
-
-            listView1.Items.Clear();
-
-            foreach (var item in tweets)
-            {
-                listView1.Items.Add(item.Text);
+            try
+            { 
+                label1.Text = us.Name;
+                error.Text = ""; 
             }
-        
-            Analyze a = new Analyze();
-            var z = a.AnalyzeList(tweets, us);
-            joyLabel.Text = "Joy: " + z.joy;
-            fearLabel.Text = "Fear: " + z.fear;
-            disgustLabel.Text = "Disgust: " + z.disgust;
-            surpriseLabel.Text = "Surprise: " + z.surprise;
-            sadnessLabel.Text = "Sadness: " + z.sadness;
-            angerLabel.Text = "Anger: " + z.anger;
+            catch(Exception r)
+            {
+                error.Text = "The user you have entered is incorrect, please try again";
+                return;
+            }
+            
+                
+            followers.Text = "Followers: " + us.FollowersCount.ToString();
+                following.Text = "Following: " + us.FriendsCount.ToString();
+
+                var utp = new UserTimelineParameters
+                {
+                    MaximumNumberOfTweetsToRetrieve = 1000
+                };
+
+                var tweets = Timeline.GetUserTimeline(us, utp);
+
+                WebClient wc = new WebClient();
+                byte[] bytes = wc.DownloadData(us.ProfileImageUrlFullSize);
+                MemoryStream ms = new MemoryStream(bytes);
+                System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+                pictureBox.Image = img;
+                pictureBox.Update();
+                pictureBox.BackColor = Color.Transparent;
+                pictureBox.BorderStyle = BorderStyle.None;
+
+                listView1.Items.Clear();
+
+                foreach (var item in tweets)
+                {
+                    listView1.Items.Add(item.Text);
+                }
+
+                Analyze a = new Analyze();
+                var z = a.AnalyzeList(tweets, us);
+                joyLabel.Text = "Joy: " + z.joy;
+                fearLabel.Text = "Fear: " + z.fear;
+                disgustLabel.Text = "Disgust: " + z.disgust;
+                surpriseLabel.Text = "Surprise: " + z.surprise;
+                sadnessLabel.Text = "Sadness: " + z.sadness;
+                angerLabel.Text = "Anger: " + z.anger;
 
 
 
-            chart1.Series["Data1"].Points.Clear();
-            chart1.Series["Data1"].Points.AddXY(0, z.joy);
-            chart1.Series["Data1"].Points.AddXY(1, z.fear);
-            chart1.Series["Data1"].Points.AddXY(2, z.disgust);
-            chart1.Series["Data1"].Points.AddXY(3, z.surprise);
-            chart1.Series["Data1"].Points.AddXY(4, z.sadness);
-            chart1.Series["Data1"].Points.AddXY(5, z.anger);
+                chart1.Series["Data1"].Points.Clear();
+                chart1.Series["Data1"].Points.AddXY(0, z.joy);
+                chart1.Series["Data1"].Points.AddXY(1, z.fear);
+                chart1.Series["Data1"].Points.AddXY(2, z.disgust);
+                chart1.Series["Data1"].Points.AddXY(3, z.surprise);
+                chart1.Series["Data1"].Points.AddXY(4, z.sadness);
+                chart1.Series["Data1"].Points.AddXY(5, z.anger);
+            
 
         }
 
