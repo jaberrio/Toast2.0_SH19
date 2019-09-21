@@ -19,14 +19,7 @@ namespace Toast2._0_SH19
     {
         public oath()
         {
-            var appCredentials = new TwitterCredentials("eGr9HEC4100Ru5ysWQC4JtODI ", "xsYHSKZ54y9cgl1zwq4L21FXgrAj5bzkMWjBk0BdLhLRyiiIiT ");
-            var authenticationContext = AuthFlow.InitAuthentication(appCredentials);
-            Process.Start(authenticationContext.AuthorizationURL);
-
-            //var pinCode = dasds.text;
-            //var userCredentials = AuthFlow.CreateCredentialsFromVerifierCode(pinCode, authenticationContext);
-            //Auth.SetCredentials(userCredentials);
-
+          
 
         }
     }
