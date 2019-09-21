@@ -23,7 +23,6 @@ namespace Toast2._0_SH19
         public LogIn()
         {
             InitializeComponent();
-
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
@@ -89,6 +88,19 @@ namespace Toast2._0_SH19
             surpriseLabel.Text = "Surprise: " + z.surprise;
             sadnessLabel.Text = "Sadness: " + z.sadness;
             angerLabel.Text = "Anger: " + z.anger;
+
+
+
+            chart1.Series["Data1"].Points.Clear();
+
+
+
+            chart1.Series["Data1"].Points.Add(0, z.joy);
+            chart1.Series["Data1"].Points.Add(1, z.fear);
+            chart1.Series["Data1"].Points.Add(2, z.disgust);
+            chart1.Series["Data1"].Points.Add(3, z.surprise);
+            chart1.Series["Data1"].Points.Add(4, z.sadness);
+            chart1.Series["Data1"].Points.Add(5, z.anger);
 
         }
 
@@ -206,6 +218,11 @@ namespace Toast2._0_SH19
         }
 
         private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
         {
 
         }
