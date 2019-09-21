@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tweetinvi;
 using Tweetinvi.Models;
+using Tweetinvi.Parameters;
 
 namespace Toast2._0_SH19
 {
@@ -50,6 +51,12 @@ namespace Toast2._0_SH19
 
             label1.Text = us.Name;
 
+            var utp = new UserTimelineParameters
+            {
+                MaximumNumberOfTweetsToRetrieve = 100
+            };
+
+            var tweets = Timeline.GetUserTimeline(us, utp);
             
         }
 
