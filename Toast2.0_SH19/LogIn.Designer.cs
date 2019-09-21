@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.userName = new System.Windows.Forms.TextBox();
             this.error = new System.Windows.Forms.Label();
             this.requestPin = new System.Windows.Forms.Button();
@@ -46,17 +49,25 @@
             this.sadnessLabel = new System.Windows.Forms.Label();
             this.surpriseLabel = new System.Windows.Forms.Label();
             this.angerLabel = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.polarGraphJoy = new System.Windows.Forms.Label();
+            this.polarGraphFear = new System.Windows.Forms.Label();
+            this.polarGraphDisgust = new System.Windows.Forms.Label();
+            this.polarGraphSurprise = new System.Windows.Forms.Label();
+            this.polarGraphSadness = new System.Windows.Forms.Label();
+            this.Anger = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // userName
             // 
-            this.userName.Location = new System.Drawing.Point(8, 75);
-            this.userName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userName.Location = new System.Drawing.Point(16, 145);
+            this.userName.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(189, 22);
+            this.userName.Size = new System.Drawing.Size(374, 38);
             this.userName.TabIndex = 2;
             this.userName.TextChanged += new System.EventHandler(this.pin_TextChanged);
             // 
@@ -64,10 +75,10 @@
             // 
             this.error.AutoSize = true;
             this.error.ForeColor = System.Drawing.Color.Red;
-            this.error.Location = new System.Drawing.Point(285, 309);
-            this.error.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.error.Location = new System.Drawing.Point(570, 599);
+            this.error.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.error.Name = "error";
-            this.error.Size = new System.Drawing.Size(0, 17);
+            this.error.Size = new System.Drawing.Size(0, 32);
             this.error.TabIndex = 5;
             this.error.Click += new System.EventHandler(this.label1_Click_1);
             // 
@@ -76,10 +87,10 @@
             this.requestPin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.requestPin.FlatAppearance.BorderSize = 0;
             this.requestPin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.requestPin.Location = new System.Drawing.Point(8, 107);
-            this.requestPin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.requestPin.Location = new System.Drawing.Point(16, 207);
+            this.requestPin.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.requestPin.Name = "requestPin";
-            this.requestPin.Size = new System.Drawing.Size(190, 37);
+            this.requestPin.Size = new System.Drawing.Size(380, 72);
             this.requestPin.TabIndex = 6;
             this.requestPin.Text = "Search Person";
             this.requestPin.UseVisualStyleBackColor = false;
@@ -88,9 +99,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 164);
+            this.label1.Location = new System.Drawing.Point(10, 318);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 17);
+            this.label1.Size = new System.Drawing.Size(74, 32);
             this.label1.TabIndex = 7;
             this.label1.Text = "User";
             this.label1.Click += new System.EventHandler(this.label1_Click_2);
@@ -99,10 +111,10 @@
             // 
             this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(8, 238);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox.Location = new System.Drawing.Point(16, 461);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(189, 207);
+            this.pictureBox.Size = new System.Drawing.Size(376, 399);
             this.pictureBox.TabIndex = 10;
             this.pictureBox.TabStop = false;
             this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
@@ -114,10 +126,10 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Tweets});
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(260, 238);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Location = new System.Drawing.Point(444, 462);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(452, 208);
+            this.listView1.Size = new System.Drawing.Size(900, 399);
             this.listView1.TabIndex = 11;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -130,9 +142,10 @@
             // followers
             // 
             this.followers.AutoSize = true;
-            this.followers.Location = new System.Drawing.Point(5, 190);
+            this.followers.Location = new System.Drawing.Point(10, 368);
+            this.followers.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.followers.Name = "followers";
-            this.followers.Size = new System.Drawing.Size(75, 17);
+            this.followers.Size = new System.Drawing.Size(152, 32);
             this.followers.TabIndex = 12;
             this.followers.Text = "Followers: ";
             this.followers.Click += new System.EventHandler(this.followers_Click);
@@ -140,9 +153,10 @@
             // following
             // 
             this.following.AutoSize = true;
-            this.following.Location = new System.Drawing.Point(5, 216);
+            this.following.Location = new System.Drawing.Point(10, 418);
+            this.following.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.following.Name = "following";
-            this.following.Size = new System.Drawing.Size(74, 17);
+            this.following.Size = new System.Drawing.Size(152, 32);
             this.following.TabIndex = 13;
             this.following.Text = "Following: ";
             // 
@@ -150,10 +164,10 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(786, 7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(2509, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 34);
+            this.pictureBox1.Size = new System.Drawing.Size(144, 66);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -164,10 +178,10 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(718, 7);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(2373, 10);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(72, 34);
+            this.pictureBox2.Size = new System.Drawing.Size(144, 66);
             this.pictureBox2.TabIndex = 16;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -177,9 +191,10 @@
             // joyLabel
             // 
             this.joyLabel.AutoSize = true;
-            this.joyLabel.Location = new System.Drawing.Point(717, 352);
+            this.joyLabel.Location = new System.Drawing.Point(1354, 684);
+            this.joyLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.joyLabel.Name = "joyLabel";
-            this.joyLabel.Size = new System.Drawing.Size(38, 17);
+            this.joyLabel.Size = new System.Drawing.Size(74, 32);
             this.joyLabel.TabIndex = 17;
             this.joyLabel.Text = "Joy: ";
             this.joyLabel.Click += new System.EventHandler(this.joyLabel_Click);
@@ -187,9 +202,10 @@
             // fearLabel
             // 
             this.fearLabel.AutoSize = true;
-            this.fearLabel.Location = new System.Drawing.Point(717, 314);
+            this.fearLabel.Location = new System.Drawing.Point(1354, 610);
+            this.fearLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.fearLabel.Name = "fearLabel";
-            this.fearLabel.Size = new System.Drawing.Size(45, 17);
+            this.fearLabel.Size = new System.Drawing.Size(88, 32);
             this.fearLabel.TabIndex = 18;
             this.fearLabel.Text = "Fear: ";
             this.fearLabel.Click += new System.EventHandler(this.fearLabel_Click);
@@ -197,9 +213,10 @@
             // disgustLabel
             // 
             this.disgustLabel.AutoSize = true;
-            this.disgustLabel.Location = new System.Drawing.Point(717, 276);
+            this.disgustLabel.Location = new System.Drawing.Point(1354, 537);
+            this.disgustLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.disgustLabel.Name = "disgustLabel";
-            this.disgustLabel.Size = new System.Drawing.Size(63, 17);
+            this.disgustLabel.Size = new System.Drawing.Size(125, 32);
             this.disgustLabel.TabIndex = 19;
             this.disgustLabel.Text = "Disgust: ";
             this.disgustLabel.Click += new System.EventHandler(this.disgustLabel_Click);
@@ -207,9 +224,10 @@
             // sadnessLabel
             // 
             this.sadnessLabel.AutoSize = true;
-            this.sadnessLabel.Location = new System.Drawing.Point(717, 238);
+            this.sadnessLabel.Location = new System.Drawing.Point(1354, 463);
+            this.sadnessLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.sadnessLabel.Name = "sadnessLabel";
-            this.sadnessLabel.Size = new System.Drawing.Size(71, 17);
+            this.sadnessLabel.Size = new System.Drawing.Size(141, 32);
             this.sadnessLabel.TabIndex = 20;
             this.sadnessLabel.Text = "Sadness: ";
             this.sadnessLabel.Click += new System.EventHandler(this.sadnessLabel_Click);
@@ -217,9 +235,10 @@
             // surpriseLabel
             // 
             this.surpriseLabel.AutoSize = true;
-            this.surpriseLabel.Location = new System.Drawing.Point(717, 390);
+            this.surpriseLabel.Location = new System.Drawing.Point(1354, 758);
+            this.surpriseLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.surpriseLabel.Name = "surpriseLabel";
-            this.surpriseLabel.Size = new System.Drawing.Size(69, 17);
+            this.surpriseLabel.Size = new System.Drawing.Size(136, 32);
             this.surpriseLabel.TabIndex = 21;
             this.surpriseLabel.Text = "Surprise: ";
             this.surpriseLabel.Click += new System.EventHandler(this.surpriseLabel_Click);
@@ -227,20 +246,128 @@
             // angerLabel
             // 
             this.angerLabel.AutoSize = true;
-            this.angerLabel.Location = new System.Drawing.Point(717, 428);
+            this.angerLabel.Location = new System.Drawing.Point(1354, 831);
+            this.angerLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.angerLabel.Name = "angerLabel";
-            this.angerLabel.Size = new System.Drawing.Size(54, 17);
+            this.angerLabel.Size = new System.Drawing.Size(106, 32);
             this.angerLabel.TabIndex = 22;
             this.angerLabel.Text = "Anger: ";
             this.angerLabel.Click += new System.EventHandler(this.angerLabel_Click);
             // 
+            // chart1
+            // 
+            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
+            this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.chart1.BorderSkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.chart1.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            chartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ZigZag;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Alignment = System.Drawing.StringAlignment.Far;
+            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(1730, 236);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series1.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
+            series1.IsValueShownAsLabel = true;
+            series1.Legend = "Legend1";
+            series1.MarkerSize = 4;
+            series1.Name = "Data1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(637, 624);
+            this.chart1.TabIndex = 23;
+            this.chart1.TabStop = false;
+            this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            // 
+            // polarGraphJoy
+            // 
+            this.polarGraphJoy.AutoSize = true;
+            this.polarGraphJoy.BackColor = System.Drawing.Color.Transparent;
+            this.polarGraphJoy.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.polarGraphJoy.Location = new System.Drawing.Point(2020, 213);
+            this.polarGraphJoy.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.polarGraphJoy.Name = "polarGraphJoy";
+            this.polarGraphJoy.Size = new System.Drawing.Size(66, 32);
+            this.polarGraphJoy.TabIndex = 24;
+            this.polarGraphJoy.Text = "Joy ";
+            this.polarGraphJoy.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // polarGraphFear
+            // 
+            this.polarGraphFear.AutoSize = true;
+            this.polarGraphFear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
+            this.polarGraphFear.Location = new System.Drawing.Point(2304, 365);
+            this.polarGraphFear.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.polarGraphFear.Name = "polarGraphFear";
+            this.polarGraphFear.Size = new System.Drawing.Size(73, 32);
+            this.polarGraphFear.TabIndex = 25;
+            this.polarGraphFear.Text = "Fear";
+            // 
+            // polarGraphDisgust
+            // 
+            this.polarGraphDisgust.AutoSize = true;
+            this.polarGraphDisgust.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
+            this.polarGraphDisgust.Location = new System.Drawing.Point(2294, 698);
+            this.polarGraphDisgust.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.polarGraphDisgust.Name = "polarGraphDisgust";
+            this.polarGraphDisgust.Size = new System.Drawing.Size(110, 32);
+            this.polarGraphDisgust.TabIndex = 26;
+            this.polarGraphDisgust.Text = "Disgust";
+            // 
+            // polarGraphSurprise
+            // 
+            this.polarGraphSurprise.AutoSize = true;
+            this.polarGraphSurprise.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
+            this.polarGraphSurprise.Location = new System.Drawing.Point(2013, 844);
+            this.polarGraphSurprise.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.polarGraphSurprise.Name = "polarGraphSurprise";
+            this.polarGraphSurprise.Size = new System.Drawing.Size(121, 32);
+            this.polarGraphSurprise.TabIndex = 27;
+            this.polarGraphSurprise.Text = "Surprise";
+            // 
+            // polarGraphSadness
+            // 
+            this.polarGraphSadness.AutoSize = true;
+            this.polarGraphSadness.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
+            this.polarGraphSadness.Location = new System.Drawing.Point(1680, 698);
+            this.polarGraphSadness.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.polarGraphSadness.Name = "polarGraphSadness";
+            this.polarGraphSadness.Size = new System.Drawing.Size(126, 32);
+            this.polarGraphSadness.TabIndex = 28;
+            this.polarGraphSadness.Text = "Sadness";
+            // 
+            // Anger
+            // 
+            this.Anger.AutoSize = true;
+            this.Anger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
+            this.Anger.Location = new System.Drawing.Point(1715, 365);
+            this.Anger.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.Anger.Name = "Anger";
+            this.Anger.Size = new System.Drawing.Size(91, 32);
+            this.Anger.TabIndex = 29;
+            this.Anger.Text = "Anger";
+            // 
             // LogIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(860, 485);
+            this.ClientSize = new System.Drawing.Size(2676, 949);
+            this.Controls.Add(this.Anger);
+            this.Controls.Add(this.polarGraphSadness);
+            this.Controls.Add(this.polarGraphSurprise);
+            this.Controls.Add(this.polarGraphDisgust);
+            this.Controls.Add(this.polarGraphFear);
+            this.Controls.Add(this.polarGraphJoy);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.angerLabel);
             this.Controls.Add(this.surpriseLabel);
             this.Controls.Add(this.sadnessLabel);
@@ -258,6 +385,7 @@
             this.Controls.Add(this.error);
             this.Controls.Add(this.userName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "LogIn";
             this.Text = "Emotion Tracker";
             this.Load += new System.EventHandler(this.LogIn_Load);
@@ -267,6 +395,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,6 +419,13 @@
         private System.Windows.Forms.Label sadnessLabel;
         private System.Windows.Forms.Label surpriseLabel;
         private System.Windows.Forms.Label angerLabel;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label polarGraphJoy;
+        private System.Windows.Forms.Label polarGraphFear;
+        private System.Windows.Forms.Label polarGraphDisgust;
+        private System.Windows.Forms.Label polarGraphSurprise;
+        private System.Windows.Forms.Label polarGraphSadness;
+        private System.Windows.Forms.Label Anger;
     }
 }
 
