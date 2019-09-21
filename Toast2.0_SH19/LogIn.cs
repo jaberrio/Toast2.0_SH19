@@ -70,6 +70,8 @@ namespace Toast2._0_SH19
             System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
             pictureBox.Image = img;
             pictureBox.Update();
+            pictureBox.BackColor = Color.Transparent;
+            pictureBox.BorderStyle = BorderStyle.None;
 
             foreach (var item in tweets)
             {
@@ -86,6 +88,26 @@ namespace Toast2._0_SH19
         private void followers_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }
