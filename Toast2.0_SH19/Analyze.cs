@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tweetinvi;
+using Tweetinvi.Models;
 
 namespace Toast2._0_SH19
 {
     class Analyze
     {
-        IEnumerable<string> tweet;
-        IEnumerable<string> user;
-        public Analyze()
+        public Analyze(ITweet tweet)
         {
 
         }
-        public Analyze(IEnumerable<string> _tweet, IEnumerable<string> _user)
+        public Analyze(IEnumerable<ITweet> tweets, IUser user)
         {
-            tweet = _tweet;
-            user = _user;
         }
     }
 }
