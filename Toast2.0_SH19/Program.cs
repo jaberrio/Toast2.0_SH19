@@ -16,7 +16,7 @@ namespace Toast2._0_SH19
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new LogIn());
         }
     }
 }

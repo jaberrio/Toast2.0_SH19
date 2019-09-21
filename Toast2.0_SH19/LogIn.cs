@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Toast2._0_SH19
 {
-    public partial class Form1 : Form
+    public partial class LogIn : Form
     {
-        public Form1()
+        public LogIn()
         {
             InitializeComponent();
         }
