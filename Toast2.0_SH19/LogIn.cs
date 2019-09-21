@@ -139,5 +139,17 @@ namespace Toast2._0_SH19
         {
             mouseDownPoint = Point.Empty;
         }
+
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            Image temp = new Bitmap("Photos/-22.png");
+            this.pictureBox2.BackgroundImage = temp;
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            Image temp = new Bitmap("Photos/-.png");
+            this.pictureBox2.BackgroundImage = temp;
+        }
     }
 }
