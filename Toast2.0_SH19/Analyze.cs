@@ -36,6 +36,8 @@ namespace Toast2._0_SH19
         public enum positive { ALL = 2, POSITIVE = 1, NEGATIVE = 0};
         public enum strong { ALL = 2,STRONG = 1, WEAK = 0};
 
+        public positive pos;
+        public strong str;
         public int getSubHits(positive p ,strong s)
         {
             int count = 0;
@@ -69,6 +71,20 @@ namespace Toast2._0_SH19
         
     }
 
+    class wordSb
+    {
+        public string word;
+        public string subj;
+        public string posneg;
+
+        public wordSb(string word, string subj, string posneg)
+        {
+            this.word = word;
+            this.subj = subj;
+            this.posneg = posneg;
+        }
+    }
+
     class TTweetList
     {
         public IEnumerable<TTweet> ttweets;
@@ -87,16 +103,26 @@ namespace Toast2._0_SH19
     class Analyze
     {
         List<wordE> wordEs;
+        List<wordSb> wordSbs;
 
         public Analyze()
         {
             wordEs = new List<wordE>(1000);
+            wordSbs = new List<wordSb>(1000);
+
             string line;
             StreamReader file = new System.IO.StreamReader("DataClassify/emotions.csv");
             while ((line = file.ReadLine()) != null)
             {
                 var s = line.Split(',');
                 wordEs.Add(new wordE(s[0], s[1]));
+            }
+
+            file = new System.IO.StreamReader("DataClassify/subjectivity.csv");
+            while ((line = file.ReadLine()) != null)
+            {
+                var s = line.Split(',');
+                wordSbs.Add(new wordSb(s[0],s[1],s[2]));
             }
         }
         
@@ -109,6 +135,7 @@ namespace Toast2._0_SH19
 
             //Pulls out 6 emotionalChar of a tweet
             pullSixOut(words, temp);
+            pullSubjectiviityOut(words, temp);
             return temp;
         }
 
@@ -151,6 +178,21 @@ namespace Toast2._0_SH19
 
         }
         
+        public void pullSubjectiviityOut(string[] words, TTweet temp)
+        {
+            foreach (var tweet_word in words)
+            {
+                foreach (var word_dic in wordSbs)
+                {
+                    if (tweet_word.Contains(word_dic.word))
+                    {
+                        temp.pos = (word_dic.posneg.Contains("positive")) ? TTweet.positive.POSITIVE : TTweet.positive.NEGATIVE;
+                        temp.str = (word_dic.posneg.Contains("strongsubj")) ? TTweet.strong.STRONG : TTweet.strong.WEAK;
+                        break;
+                    }
+                }
+            }
+        }
 
 
         public TTweetList AnalyzeList(IEnumerable<ITweet> tweets, IUser user)
