@@ -41,6 +41,7 @@ namespace Toast2._0_SH19
         //Aggrigate score
         public
             int
+            size,
             joy,
             fear,
             anger,
@@ -121,7 +122,7 @@ namespace Toast2._0_SH19
                 tempList.joy += f.joy;
                 tempList.surprise += f.surprise;
                 tempList.sadness += f.sadness;
-
+                tempList.size++;
             }
             return tempList;
         }
