@@ -22,6 +22,8 @@ namespace Toast2._0_SH19
         public LogIn()
         {
             InitializeComponent();
+
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void LogIn_Load(object sender, EventArgs e)
@@ -61,7 +63,7 @@ namespace Toast2._0_SH19
             var tweets = Timeline.GetUserTimeline(us, utp);
             
             WebClient wc = new WebClient();
-            byte[] bytes = wc.DownloadData(us.ProfileImageUrl);
+            byte[] bytes = wc.DownloadData(us.ProfileImageUrlFullSize);
             MemoryStream ms = new MemoryStream(bytes);
             System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
             pictureBox.Image = img;
