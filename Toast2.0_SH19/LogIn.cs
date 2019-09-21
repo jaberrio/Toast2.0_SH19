@@ -168,5 +168,10 @@ namespace Toast2._0_SH19
             Image temp = new Bitmap("Photos/x2.png");
             this.pictureBox1.BackgroundImage = temp;
         }
+
+        private void sadnessLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

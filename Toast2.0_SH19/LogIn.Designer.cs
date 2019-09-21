@@ -40,6 +40,11 @@
             this.following = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.joyLabel = new System.Windows.Forms.Label();
+            this.fearLabel = new System.Windows.Forms.Label();
+            this.disgustLabel = new System.Windows.Forms.Label();
+            this.sadnessLabel = new System.Windows.Forms.Label();
+            this.surpriseLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -168,13 +173,69 @@
             this.pictureBox2.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
             this.pictureBox2.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
             // 
+            // joyLabel
+            // 
+            this.joyLabel.AutoSize = true;
+            this.joyLabel.Location = new System.Drawing.Point(1477, 597);
+            this.joyLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.joyLabel.Name = "joyLabel";
+            this.joyLabel.Size = new System.Drawing.Size(74, 32);
+            this.joyLabel.TabIndex = 17;
+            this.joyLabel.Text = "Joy: ";
+            // 
+            // fearLabel
+            // 
+            this.fearLabel.AutoSize = true;
+            this.fearLabel.Location = new System.Drawing.Point(1477, 548);
+            this.fearLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.fearLabel.Name = "fearLabel";
+            this.fearLabel.Size = new System.Drawing.Size(88, 32);
+            this.fearLabel.TabIndex = 18;
+            this.fearLabel.Text = "Fear: ";
+            // 
+            // disgustLabel
+            // 
+            this.disgustLabel.AutoSize = true;
+            this.disgustLabel.Location = new System.Drawing.Point(1477, 504);
+            this.disgustLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.disgustLabel.Name = "disgustLabel";
+            this.disgustLabel.Size = new System.Drawing.Size(125, 32);
+            this.disgustLabel.TabIndex = 19;
+            this.disgustLabel.Text = "Disgust: ";
+            // 
+            // sadnessLabel
+            // 
+            this.sadnessLabel.AutoSize = true;
+            this.sadnessLabel.Location = new System.Drawing.Point(1477, 461);
+            this.sadnessLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.sadnessLabel.Name = "sadnessLabel";
+            this.sadnessLabel.Size = new System.Drawing.Size(141, 32);
+            this.sadnessLabel.TabIndex = 20;
+            this.sadnessLabel.Text = "Sadness: ";
+            this.sadnessLabel.Click += new System.EventHandler(this.sadnessLabel_Click);
+            // 
+            // surpriseLabel
+            // 
+            this.surpriseLabel.AutoSize = true;
+            this.surpriseLabel.Location = new System.Drawing.Point(1477, 629);
+            this.surpriseLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.surpriseLabel.Name = "surpriseLabel";
+            this.surpriseLabel.Size = new System.Drawing.Size(136, 32);
+            this.surpriseLabel.TabIndex = 21;
+            this.surpriseLabel.Text = "Surprise: ";
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1544, 940);
+            this.ClientSize = new System.Drawing.Size(1853, 940);
+            this.Controls.Add(this.surpriseLabel);
+            this.Controls.Add(this.sadnessLabel);
+            this.Controls.Add(this.disgustLabel);
+            this.Controls.Add(this.fearLabel);
+            this.Controls.Add(this.joyLabel);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.following);
@@ -213,6 +274,11 @@
         private System.Windows.Forms.Label following;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label joyLabel;
+        private System.Windows.Forms.Label fearLabel;
+        private System.Windows.Forms.Label disgustLabel;
+        private System.Windows.Forms.Label sadnessLabel;
+        private System.Windows.Forms.Label surpriseLabel;
     }
 }
 
