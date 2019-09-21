@@ -53,7 +53,7 @@
             // userName
             // 
             this.userName.Location = new System.Drawing.Point(46, 187);
-            this.userName.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.userName.Margin = new System.Windows.Forms.Padding(8);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(374, 38);
             this.userName.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             this.requestPin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.requestPin.Location = new System.Drawing.Point(41, 234);
-            this.requestPin.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.requestPin.Margin = new System.Windows.Forms.Padding(12);
             this.requestPin.Name = "requestPin";
             this.requestPin.Size = new System.Drawing.Size(376, 72);
             this.requestPin.TabIndex = 6;
@@ -97,7 +97,7 @@
             this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox.Location = new System.Drawing.Point(17, 461);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(8);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(400, 399);
             this.pictureBox.TabIndex = 10;
@@ -112,7 +112,7 @@
             this.Tweets});
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(520, 461);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(900, 399);
             this.listView1.TabIndex = 11;
@@ -149,8 +149,8 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(1386, 12);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(1571, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(144, 66);
             this.pictureBox1.TabIndex = 15;
@@ -163,8 +163,8 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(1252, 12);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(1437, 13);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(144, 66);
             this.pictureBox2.TabIndex = 16;
@@ -230,7 +230,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1853, 940);
+            this.ClientSize = new System.Drawing.Size(1719, 940);
             this.Controls.Add(this.surpriseLabel);
             this.Controls.Add(this.sadnessLabel);
             this.Controls.Add(this.disgustLabel);
@@ -247,7 +247,7 @@
             this.Controls.Add(this.error);
             this.Controls.Add(this.userName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "LogIn";
             this.Text = "Emotion Tracker";
             this.Load += new System.EventHandler(this.LogIn_Load);
