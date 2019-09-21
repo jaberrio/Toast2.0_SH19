@@ -46,11 +46,16 @@ namespace Toast2._0_SH19
             var appCreds = Auth.SetApplicationOnlyCredentials("eGr9HEC4100Ru5ysWQC4JtODI", "xsYHSKZ54y9cgl1zwq4L21FXgrAj5bzkMWjBk0BdLhLRyiiIiT", true);
 
 
-            var us = User.GetUserFromScreenName("jaberrio99");
+            var us = User.GetUserFromScreenName(userName.Text);
 
-            //us.GetUserTimeline();
+            label1.Text = us.Name;
 
             
+        }
+
+        private void pin_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
