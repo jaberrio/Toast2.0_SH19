@@ -11,6 +11,16 @@ namespace Toast2._0_SH19
 {
     class TTweet
     {
+        public class subjectivity{
+            public bool strong = false;
+            public bool positive = false;
+
+            public subjectivity(bool strong, bool positive)
+            {
+                this.strong = strong;
+                this.positive = positive;
+            }
+        };
         public
             int 
             joy,
@@ -21,6 +31,30 @@ namespace Toast2._0_SH19
             surprise;
         public ITweet t;
         public int numWords;
+        public List<subjectivity> subjectivities;
+
+        public enum positive { ALL = 2, POSITIVE = 1, NEGATIVE = 0};
+        public enum strong { ALL = 2,STRONG = 1, WEAK = 0};
+
+        public int getSubHits(positive p ,strong s)
+        {
+            int count = 0;
+            foreach (var item in subjectivities)
+            {
+                //POSITIVE POSTIVE
+                if (item.positive == true && (p == positive.POSITIVE || p == positive.ALL))
+                {
+                    if(item.strong == true  && (s == strong.STRONG  || s == strong.ALL))count++;
+                    if(item.strong == false && (s == strong.WEAK    || s == strong.ALL))count++;
+                }
+                if (item.strong == false && (p == positive.NEGATIVE || p == positive.ALL))
+                {
+                    if (item.strong == true && (s == strong.STRONG || s == strong.ALL)) count++;
+                    if (item.strong == false && (s == strong.WEAK || s == strong.ALL)) count++;
+                }
+            }
+            return 0;
+        }
     }
 
     class wordE
@@ -65,7 +99,7 @@ namespace Toast2._0_SH19
                 wordEs.Add(new wordE(s[0], s[1]));
             }
         }
-
+        
         public TTweet AnalyzeSingle(ITweet tweet)
         {
             TTweet temp = new TTweet();
@@ -73,11 +107,20 @@ namespace Toast2._0_SH19
             string[] words = tweet.Text.Split(' ');
             temp.numWords = words.Length;
 
+            //Pulls out 6 emotionalChar of a tweet
+            pullSixOut(words, temp);
+            return temp;
+        }
+
+        //Updates the tweets score of the 6 traits based on emotions
+        public void pullSixOut(string[] words, TTweet temp)
+        {
             foreach (var word in words)
             {
                 foreach (var emotion in wordEs)
                 {
-                    if (word.Contains(emotion.e)){
+                    if (word.Contains(emotion.e))
+                    {
                         switch (emotion.word)
                         {
                             case "joy":
@@ -105,8 +148,9 @@ namespace Toast2._0_SH19
                     }
                 }
             }
-            return temp;
+
         }
+        
         public TTweetList AnalyzeList(IEnumerable<ITweet> tweets, IUser user)
         {
             var tempList = new TTweetList();

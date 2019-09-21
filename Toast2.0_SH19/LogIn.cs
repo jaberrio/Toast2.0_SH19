@@ -74,13 +74,9 @@ namespace Toast2._0_SH19
             pictureBox.BackColor = Color.Transparent;
             pictureBox.BorderStyle = BorderStyle.None;
 
-            foreach (var item in tweets)
-            {
-                listView1.Items.Add(item.Text);
-            }
-            
 
-
+            listView1.Items.Clear();
+        
             Analyze a = new Analyze();
             var z = a.AnalyzeList(tweets, us);
             joyLabel.Text = "Joy: " + z.joy;
