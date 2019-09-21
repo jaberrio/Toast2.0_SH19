@@ -57,7 +57,7 @@ namespace Toast2._0_SH19
 
             var utp = new UserTimelineParameters
             {
-                MaximumNumberOfTweetsToRetrieve = 100
+                MaximumNumberOfTweetsToRetrieve = 1000
             };
 
             var tweets = Timeline.GetUserTimeline(us, utp);
@@ -68,6 +68,14 @@ namespace Toast2._0_SH19
             System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
             pictureBox.Image = img;
             pictureBox.Update();
+
+
+            Analyze a = new Analyze();
+
+            foreach (var item in tweets)
+            {
+                a.AnalyzeSingle(item);
+            }
         }
 
         private void pin_TextChanged(object sender, EventArgs e)
