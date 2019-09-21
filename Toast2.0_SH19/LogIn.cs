@@ -88,6 +88,7 @@ namespace Toast2._0_SH19
             disgustLabel.Text = "Disgust: " + z.disgust;
             surpriseLabel.Text = "Surprise: " + z.surprise;
             sadnessLabel.Text = "Sadness: " + z.sadness;
+            angerLabel.Text = "Anger: " + z.anger;
 
         }
 
@@ -175,6 +176,36 @@ namespace Toast2._0_SH19
         }
 
         private void sadnessLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void surpriseLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void angerLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void joyLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fearLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void disgustLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
         {
 
         }
