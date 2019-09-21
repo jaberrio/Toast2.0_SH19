@@ -220,6 +220,8 @@ namespace Toast2._0_SH19
             return tempList;
         }
 
+        public Dictionary<string, double> getPersonalities(TTweetList _list)
+
         private Dictionary<string, int> wordCountList = new Dictionary<string, int>();
         
         public void countWord(string word)
@@ -236,13 +238,49 @@ namespace Toast2._0_SH19
         {
             var map = new Dictionary<string, double>();
 
-            double joyN = _list.joy / _list.size;
-            double fearN = _list.fear / _list.size;
-            double angerN = _list.anger / _list.size;
-            double disgustN = _list.disgust / _list.size;
-            double sadnessN = _list.sadness / _list.size;
-            double surpriseN = _list.surprise / _list.size;
-            
+            double joyN = (double)_list.joy / (double)_list.size;
+            double fearN = (double)_list.fear / (double)_list.size;
+            double angerN = (double)_list.anger / (double)_list.size;
+            double disgustN = (double)_list.disgust / (double)_list.size;
+            double sadnessN = (double)_list.sadness / (double)_list.size;
+            double surpriseN = (double)_list.surprise / (double)_list.size;
+
+            double neurotic = fearN * 0.5 + sadnessN * 0.9 + angerN * 0.5;
+            double agreeable = joyN - disgustN * 0.5 - angerN * 0.4;
+            double open = surpriseN - disgustN * 0.5 - fearN * 0.4 + joyN * 0.3;
+            double extrovert = joyN * 0.7 + surpriseN * 0.6 - sadnessN * 0.4 - fearN * 0.3;
+            double conscientious = joyN + disgustN * 0.8 - angerN * 0.2;
+
+            if (neurotic < 0)
+            {
+                neurotic = 0;
+            }
+            if (agreeable < 0)
+            {
+                agreeable = 0;
+            }
+            if (open < 0)
+            {
+                open = 0;
+            }
+            if (extrovert < 0)
+            {
+                extrovert = 0;
+            }
+            if (conscientious < 0)
+            {
+                conscientious = 0;
+            }
+
+            double personalityTotal = neurotic + agreeable + open + extrovert + conscientious;
+
+            map.Add("Neurotic", neurotic / personalityTotal);
+            map.Add("Agreeable", agreeable / personalityTotal);
+            map.Add("Open", open / personalityTotal);
+            map.Add("Extrovert", extrovert / personalityTotal);
+            map.Add("Conscientious", conscientious / personalityTotal);
+            map.Add("Total", personalityTotal);
+
             return map;
         }
     }
