@@ -37,34 +37,36 @@
             // 
             // enter
             // 
-            this.enter.Location = new System.Drawing.Point(661, 490);
-            this.enter.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.enter.Location = new System.Drawing.Point(330, 253);
             this.enter.Name = "enter";
-            this.enter.Size = new System.Drawing.Size(186, 72);
+            this.enter.Size = new System.Drawing.Size(93, 37);
             this.enter.TabIndex = 0;
             this.enter.Text = "Log In";
             this.enter.UseVisualStyleBackColor = true;
             // 
             // username
             // 
-            this.username.Location = new System.Drawing.Point(576, 264);
+            this.username.Location = new System.Drawing.Point(288, 136);
+            this.username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(374, 38);
+            this.username.Size = new System.Drawing.Size(189, 22);
             this.username.TabIndex = 1;
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(576, 391);
+            this.password.Location = new System.Drawing.Point(288, 202);
+            this.password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(374, 38);
+            this.password.Size = new System.Drawing.Size(189, 22);
             this.password.TabIndex = 2;
             // 
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(570, 211);
+            this.usernameLabel.Location = new System.Drawing.Point(285, 109);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(237, 32);
+            this.usernameLabel.Size = new System.Drawing.Size(119, 17);
             this.usernameLabel.TabIndex = 3;
             this.usernameLabel.Text = "Twitter Username";
             this.usernameLabel.Click += new System.EventHandler(this.label1_Click);
@@ -72,23 +74,23 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(570, 335);
+            this.passwordLabel.Location = new System.Drawing.Point(285, 173);
+            this.passwordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(231, 32);
+            this.passwordLabel.Size = new System.Drawing.Size(115, 17);
             this.passwordLabel.TabIndex = 4;
             this.passwordLabel.Text = "Twitter Password";
             // 
             // LogIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1600, 872);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.password);
             this.Controls.Add(this.username);
             this.Controls.Add(this.enter);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "LogIn";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.LogIn_Load);

@@ -26,5 +26,10 @@ namespace Toast2._0_SH19
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            oath o = new oath();
+        }
     }
 }
