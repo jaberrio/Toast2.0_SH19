@@ -172,7 +172,8 @@ namespace Toast2._0_SH19
             }
 
             //Sort the world
-            wordCountList = wordCountList.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            wordCountList = wordCountList.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            
 
             return tempList;
         }

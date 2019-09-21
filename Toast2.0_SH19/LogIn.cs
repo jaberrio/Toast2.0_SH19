@@ -60,7 +60,7 @@ namespace Toast2._0_SH19
 
             var utp = new UserTimelineParameters
             {
-                MaximumNumberOfTweetsToRetrieve = 500
+                MaximumNumberOfTweetsToRetrieve = 1000
             };
 
             var tweets = Timeline.GetUserTimeline(us, utp);
