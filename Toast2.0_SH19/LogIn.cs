@@ -81,11 +81,8 @@ namespace Toast2._0_SH19
 
 
             Analyze a = new Analyze();
+            a.AnalyzeList(tweets, us);
 
-            foreach (var item in tweets)
-            {
-                a.AnalyzeSingle(item);
-            }
         }
 
         private void pin_TextChanged(object sender, EventArgs e)

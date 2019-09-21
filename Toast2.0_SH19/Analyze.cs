@@ -20,7 +20,7 @@ namespace Toast2._0_SH19
             sadness,
             surprise;
         public ITweet t;
-        int numWords;
+        public int numWords;
     }
 
     class wordE
@@ -56,12 +56,13 @@ namespace Toast2._0_SH19
             TTweet temp = new TTweet();
             temp.t = tweet;
             string[] words = tweet.Text.Split(' ');
+            temp.numWords = words.Length;
 
             foreach (var word in words)
             {
                 foreach (var emotion in wordEs)
                 {
-                    if (word.Contains(emotion.word)){
+                    if (word.Contains(emotion.e)){
                         switch (emotion.word)
                         {
                             case "joy":
@@ -89,13 +90,16 @@ namespace Toast2._0_SH19
                     }
                 }
             }
-            Console.Out.WriteLine(temp.joy+temp.sadness+temp.fear+temp.surprise+temp.anger+temp.disgust);
             return temp;
         }
         public IEnumerable<TTweet> AnalyzeList(IEnumerable<ITweet> tweets, IUser user)
         {
-
-            return null;
+            var temp = new List<TTweet>();
+            foreach (var item in tweets)
+            {
+                temp.Add(AnalyzeSingle(item));
+            }
+            return temp;
         }
     }
 }
