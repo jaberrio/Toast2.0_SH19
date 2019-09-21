@@ -120,12 +120,20 @@ namespace Toast2._0_SH19
         {
             mouseDownPoint = new Point(e.X, e.Y);
         }
-
+        bool isMove = false;
         private void LogIn_MouseMove(object sender, MouseEventArgs e)
         {
+            
             if (mouseDownPoint.IsEmpty)
+            {
+                isMove = false;
                 return;
+            }
             else if (e.Y < 30)
+            {
+                isMove = true;
+            }
+            if(isMove)
             {
                 Form f = sender as Form;
                 f.Location = new Point(f.Location.X + (e.X - mouseDownPoint.X), f.Location.Y + (e.Y - mouseDownPoint.Y));
@@ -147,6 +155,23 @@ namespace Toast2._0_SH19
         {
             Image temp = new Bitmap("Photos/-.png");
             this.pictureBox2.BackgroundImage = temp;
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            Image temp = new Bitmap("Photos/x22.png");
+            this.pictureBox1.BackgroundImage = temp;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            Image temp = new Bitmap("Photos/x2.png");
+            this.pictureBox1.BackgroundImage = temp;
+        }
+
+        private void sadnessLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
