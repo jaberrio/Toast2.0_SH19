@@ -265,12 +265,12 @@ namespace Toast2._0_SH19
             var _list = AnalyzeList(tweets, user);
             var map = new Dictionary<string, double>();
 
-            double joyN =       Math.Round((double)_list.joy        / (double)_list.size,2)*100;
-            double fearN =      Math.Round((double)_list.fear       / (double)_list.size,2)*100;
-            double angerN =     Math.Round((double)_list.anger      / (double)_list.size,2)*100;
-            double disgustN =   Math.Round((double)_list.disgust    / (double)_list.size,2)*100;
-            double sadnessN =   Math.Round((double)_list.sadness    / (double)_list.size,2)*100;
-            double surpriseN =  Math.Round((double)_list.surprise   / (double)_list.size,2)*100;
+            double joyN =       Math.Round((((double)_list.joy        / (double)_list.size)*54.4d),2);
+            double fearN =      Math.Round((((double)_list.fear       / (double)_list.size)*88.0d),2);
+            double angerN =     Math.Round((((double)_list.anger      / (double)_list.size)*98.3d),2);
+            double disgustN =   Math.Round((((double)_list.disgust    / (double)_list.size)*84.8d),2);
+            double sadnessN =   Math.Round((((double)_list.sadness    / (double)_list.size)*87.7d),2);
+            double surpriseN =  Math.Round((((double)_list.surprise   / (double)_list.size)*86.7d),2);
 
             map.Add("Joy",joyN);
             map.Add("Fear", fearN);
