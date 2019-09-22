@@ -268,7 +268,7 @@ namespace Toast2._0_SH19
                 tempNeg = tempNeg / tweetCounter;
             }
 
-            tempList.positivity = tempPos - tempNeg;
+            tempList.positivity = (tempPos - tempNeg) / (tempPos + tempNeg);
 
             tempList.size = 
                 tempList.anger + tempList.disgust + tempList.fear + tempList.joy + tempList.surprise + tempList.sadness;
