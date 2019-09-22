@@ -14,6 +14,9 @@ Project name: Twitter Tweet Tracker
   Using word analysis and key context clues, we can create a model of a twitter user who might be experiencing distress and other abnormal
   emotional spikes. Because of the rapid nature of twitter, it can be hard for individuals to keep track of their friends when they need
   them the most. Thus, this application can help users in keeping up with their friends over larger periods of time.
+  
+![](https://github.com/jaberrio/Toast2.0_SH19/blob/master/Resourses/Images/NasaScreenshot.PNG)
+
 API's used:
   Tweetinvi
     - Used to gather data on tweets and followers from Twitter
