@@ -177,14 +177,14 @@ namespace Toast2._0_SH19
             {
                 listView3.Items.Add(item.ScreenName);
             }
-            /*if(  < 0)
+            if(/*a.getPositivity(z)*/4 < 0)
             {
-                negativeBar.
+                negativeBar.Value = 5;
             }
             else
             {
-
-            }*/
+                posotiveBar.Value = 5;
+            }
 
         }
 
@@ -322,6 +322,11 @@ namespace Toast2._0_SH19
         }
 
         private void chart3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
         {
 
         }
