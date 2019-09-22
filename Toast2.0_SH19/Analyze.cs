@@ -151,7 +151,7 @@ namespace Toast2._0_SH19
                 countWord(word);
                 foreach (var emotion in wordEs)
                 {
-                    if (word.Contains(emotion.e)) {
+                    if (word.Equals(emotion.e,StringComparison.OrdinalIgnoreCase)) {
                         switch (emotion.word)
                         {
                             case "joy":
@@ -190,10 +190,10 @@ namespace Toast2._0_SH19
             {
                 foreach (var word_dic in wordSbs)
                 {
-                    if (tweet_word.Contains(word_dic.word))
+                    if (tweet_word.Equals(word_dic.word,StringComparison.OrdinalIgnoreCase))
                     {
-                        temp.pos = (word_dic.posneg.Contains("positive")) ? TTweet.positive.POSITIVE : TTweet.positive.NEGATIVE;
-                        temp.str = (word_dic.posneg.Contains("strongsubj")) ? TTweet.strong.STRONG : TTweet.strong.WEAK;
+                        temp.pos = (word_dic.posneg.Equals("positive",StringComparison.OrdinalIgnoreCase)) ? TTweet.positive.POSITIVE : TTweet.positive.NEGATIVE;
+                        temp.str = (word_dic.posneg.Equals("strongsubj",StringComparison.OrdinalIgnoreCase)) ? TTweet.strong.STRONG : TTweet.strong.WEAK;
 
                         TTweet.subjectivity tempSub = new TTweet.subjectivity(true, true);
                         if (temp.pos == TTweet.positive.POSITIVE)
@@ -297,11 +297,11 @@ namespace Toast2._0_SH19
             var _list = AnalyzeList(tweets, user);
             var map = new Dictionary<string, double>();
 
-            double joyN =       Math.Round((((double)_list.joy        / (double)_list.size)*0.54d),3)*100;
+            double joyN =       Math.Round((((double)_list.joy        / (double)_list.size)*0.40d),3)*100;
             double fearN =      Math.Round((((double)_list.fear       / (double)_list.size)*0.88d),3)*100;
             double angerN =     Math.Round((((double)_list.anger      / (double)_list.size)*0.98d),3)*100;
             double disgustN =   Math.Round((((double)_list.disgust    / (double)_list.size)*0.84d),3)*100;
-            double sadnessN =   Math.Round((((double)_list.sadness    / (double)_list.size)*0.87d),3)*100;
+            double sadnessN =   Math.Round((((double)_list.sadness    / (double)_list.size)*0.57d),3)*100;
             double surpriseN =  Math.Round((((double)_list.surprise   / (double)_list.size)*0.86d),3)*100;
 
             map.Add("Joy",joyN);
