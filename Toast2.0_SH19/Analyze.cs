@@ -352,7 +352,7 @@ namespace Toast2._0_SH19
 
         public double getPositivity(TTweetList _list)
         {
-            return (Math.Round((double)_list.positivity, 2) * 100);
+            return 50 - (Math.Round((double)_list.positivity, 2) * 50);
         }
     }
 }
