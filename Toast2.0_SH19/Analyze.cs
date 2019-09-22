@@ -340,12 +340,12 @@ namespace Toast2._0_SH19
 
             double personalityTotal = neurotic + agreeable + open + extrovert + conscientious;
 
-            map.Add("Neurotic", neurotic / personalityTotal);
-            map.Add("Agreeable", agreeable / personalityTotal);
-            map.Add("Open", open / personalityTotal);
-            map.Add("Extrovert", extrovert / personalityTotal);
-            map.Add("Conscientious", conscientious / personalityTotal);
-            map.Add("Total", personalityTotal);
+            map.Add("Neurotic",       (Math.Round((double)neurotic      / (double)personalityTotal, 2) * 100));
+            map.Add("Agreeable",      (Math.Round((double)agreeable     / (double)personalityTotal, 2) * 100));
+            map.Add("Open",           (Math.Round((double)open          / (double)personalityTotal, 2) * 100));
+            map.Add("Extrovert",      (Math.Round((double)extrovert     / (double)personalityTotal, 2) * 100));
+            map.Add("Conscientious",  (Math.Round((double)conscientious / (double)personalityTotal, 2) * 100));
+            map.Add("Total",          (Math.Round((double)personalityTotal, 2) * 100));
 
             return map;
         }
