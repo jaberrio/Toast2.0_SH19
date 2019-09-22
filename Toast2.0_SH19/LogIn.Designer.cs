@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.userName = new System.Windows.Forms.TextBox();
             this.error = new System.Windows.Forms.Label();
             this.requestPin = new System.Windows.Forms.Button();
@@ -64,6 +64,11 @@
             this.listView3 = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.polarGraph2neurotic = new System.Windows.Forms.Label();
+            this.polarGraph2Agreeable = new System.Windows.Forms.Label();
+            this.polarGraph2Conscientious = new System.Windows.Forms.Label();
+            this.polarGraph2Open = new System.Windows.Forms.Label();
+            this.polarGraph2Extrovert = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -267,27 +272,27 @@
             this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.chart1.BorderSkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.chart1.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            chartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ZigZag;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Alignment = System.Drawing.StringAlignment.Far;
-            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            chartArea5.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ZigZag;
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Alignment = System.Drawing.StringAlignment.Far;
+            legend5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(670, 35);
             this.chart1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
-            series1.IsValueShownAsLabel = true;
-            series1.Legend = "Legend1";
-            series1.MarkerSize = 4;
-            series1.Name = "Data1";
-            this.chart1.Series.Add(series1);
+            series5.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
+            series5.IsValueShownAsLabel = true;
+            series5.Legend = "Legend1";
+            series5.MarkerSize = 4;
+            series5.Name = "Data1";
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(258, 239);
             this.chart1.TabIndex = 23;
             this.chart1.TabStop = false;
@@ -333,7 +338,7 @@
             // 
             this.polarGraphSurprise.AutoSize = true;
             this.polarGraphSurprise.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
-            this.polarGraphSurprise.Location = new System.Drawing.Point(775, 268);
+            this.polarGraphSurprise.Location = new System.Drawing.Point(776, 261);
             this.polarGraphSurprise.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.polarGraphSurprise.Name = "polarGraphSurprise";
             this.polarGraphSurprise.Size = new System.Drawing.Size(45, 13);
@@ -408,32 +413,87 @@
             this.chart2.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.chart2.BorderSkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.chart2.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            chartArea2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ZigZag;
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            legend2.Alignment = System.Drawing.StringAlignment.Far;
-            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(670, 309);
+            chartArea6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            chartArea6.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ZigZag;
+            chartArea6.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea6);
+            legend6.Alignment = System.Drawing.StringAlignment.Far;
+            legend6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.chart2.Legends.Add(legend6);
+            this.chart2.Location = new System.Drawing.Point(670, 299);
             this.chart2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.chart2.Name = "chart2";
-            this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series2.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
-            series2.IsValueShownAsLabel = true;
-            series2.Legend = "Legend1";
-            series2.MarkerSize = 4;
-            series2.Name = "Data2";
-            this.chart2.Series.Add(series2);
+            this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
+            series6.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
+            series6.IsValueShownAsLabel = true;
+            series6.Legend = "Legend1";
+            series6.MarkerSize = 4;
+            series6.Name = "Data2";
+            this.chart2.Series.Add(series6);
             this.chart2.Size = new System.Drawing.Size(258, 239);
             this.chart2.TabIndex = 32;
             this.chart2.TabStop = false;
             this.chart2.Text = "chart2";
             this.chart2.Click += new System.EventHandler(this.chart2_Click);
+            // 
+            // polarGraph2neurotic
+            // 
+            this.polarGraph2neurotic.AutoSize = true;
+            this.polarGraph2neurotic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
+            this.polarGraph2neurotic.Location = new System.Drawing.Point(776, 285);
+            this.polarGraph2neurotic.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.polarGraph2neurotic.Name = "polarGraph2neurotic";
+            this.polarGraph2neurotic.Size = new System.Drawing.Size(47, 13);
+            this.polarGraph2neurotic.TabIndex = 33;
+            this.polarGraph2neurotic.Text = "Neurotic";
+            // 
+            // polarGraph2Agreeable
+            // 
+            this.polarGraph2Agreeable.AutoSize = true;
+            this.polarGraph2Agreeable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
+            this.polarGraph2Agreeable.Location = new System.Drawing.Point(902, 369);
+            this.polarGraph2Agreeable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.polarGraph2Agreeable.Name = "polarGraph2Agreeable";
+            this.polarGraph2Agreeable.Size = new System.Drawing.Size(55, 13);
+            this.polarGraph2Agreeable.TabIndex = 35;
+            this.polarGraph2Agreeable.Text = "Agreeable";
+            // 
+            // polarGraph2Conscientious
+            // 
+            this.polarGraph2Conscientious.AutoSize = true;
+            this.polarGraph2Conscientious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
+            this.polarGraph2Conscientious.Location = new System.Drawing.Point(618, 369);
+            this.polarGraph2Conscientious.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.polarGraph2Conscientious.Name = "polarGraph2Conscientious";
+            this.polarGraph2Conscientious.Size = new System.Drawing.Size(73, 13);
+            this.polarGraph2Conscientious.TabIndex = 36;
+            this.polarGraph2Conscientious.Text = "Conscientious";
+            // 
+            // polarGraph2Open
+            // 
+            this.polarGraph2Open.AutoSize = true;
+            this.polarGraph2Open.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
+            this.polarGraph2Open.Location = new System.Drawing.Point(869, 510);
+            this.polarGraph2Open.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.polarGraph2Open.Name = "polarGraph2Open";
+            this.polarGraph2Open.Size = new System.Drawing.Size(33, 13);
+            this.polarGraph2Open.TabIndex = 37;
+            this.polarGraph2Open.Text = "Open";
+            // 
+            // polarGraph2Extrovert
+            // 
+            this.polarGraph2Extrovert.AutoSize = true;
+            this.polarGraph2Extrovert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
+            this.polarGraph2Extrovert.Location = new System.Drawing.Point(688, 510);
+            this.polarGraph2Extrovert.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.polarGraph2Extrovert.Name = "polarGraph2Extrovert";
+            this.polarGraph2Extrovert.Size = new System.Drawing.Size(49, 13);
+            this.polarGraph2Extrovert.TabIndex = 38;
+            this.polarGraph2Extrovert.Text = "Extrovert";
             // 
             // LogIn
             // 
@@ -442,6 +502,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1004, 583);
+            this.Controls.Add(this.polarGraph2Extrovert);
+            this.Controls.Add(this.polarGraph2Open);
+            this.Controls.Add(this.polarGraph2Conscientious);
+            this.Controls.Add(this.polarGraph2Agreeable);
+            this.Controls.Add(this.polarGraph2neurotic);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.listView3);
             this.Controls.Add(this.listView2);
@@ -516,6 +581,11 @@
         private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.Label polarGraph2neurotic;
+        private System.Windows.Forms.Label polarGraph2Agreeable;
+        private System.Windows.Forms.Label polarGraph2Conscientious;
+        private System.Windows.Forms.Label polarGraph2Open;
+        private System.Windows.Forms.Label polarGraph2Extrovert;
     }
 }
 
