@@ -158,10 +158,7 @@ namespace Toast2._0_SH19
             chart1.Series["Data1"].Points.AddXY(4, _tval);
             z.TryGetValue("Anger", out _tval);
             chart1.Series["Data1"].Points.AddXY(5, _tval);
-
-
-
-            var followersHave = User.GetFollowers(us, 1000);
+            
             listView2.Items.Clear();
             
             foreach (var item in followersHave)
