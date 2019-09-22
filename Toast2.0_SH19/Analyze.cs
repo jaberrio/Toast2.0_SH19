@@ -268,7 +268,7 @@ namespace Toast2._0_SH19
                 tempNeg = tempNeg / tweetCounter;
             }
 
-            tempList.positivity = tempPos - tempNeg;
+            tempList.positivity = (tempPos - tempNeg) / (tempPos + tempNeg);
 
             tempList.size = 
                 tempList.anger + tempList.disgust + tempList.fear + tempList.joy + tempList.surprise + tempList.sadness;
@@ -292,7 +292,7 @@ namespace Toast2._0_SH19
         }
     
     
-        public Dictionary<string, double> getPersonaities(IEnumerable<ITweet> tweets, IUser user)
+        public Dictionary<string, double> getPersonalities(IEnumerable<ITweet> tweets, IUser user)
         {
             var _list = AnalyzeList(tweets, user);
             var map = new Dictionary<string, double>();
@@ -346,13 +346,14 @@ namespace Toast2._0_SH19
             map.Add("Extrovert",      (Math.Round((double)extrovert     / (double)personalityTotal, 3) * 100));
             map.Add("Conscientious",  (Math.Round((double)conscientious / (double)personalityTotal, 3) * 100));
             map.Add("Total",          (Math.Round((double)personalityTotal, 2) * 100));
+            map.Add("Positivity",     (Math.Round((double)_list.positivity, 2) * 100));
 
             return map;
         }
 
-        public double getPositivity(TTweetList _list)
-        {
-            return _list.positivity;
-        }
+        //public double getPositivity(TTweetList _list)
+        //{
+        //    return (Math.Round((double)_list.positivity, 2) * 100);
+        //}
     }
 }
