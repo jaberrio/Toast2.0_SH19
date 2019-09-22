@@ -151,7 +151,7 @@ namespace Toast2._0_SH19
                 countWord(word);
                 foreach (var emotion in wordEs)
                 {
-                    if (word.Equals(emotion.e,StringComparison.OrdinalIgnoreCase)) {
+                    if (word.Contains(emotion.e)) {
                         switch (emotion.word)
                         {
                             case "joy":
@@ -190,10 +190,10 @@ namespace Toast2._0_SH19
             {
                 foreach (var word_dic in wordSbs)
                 {
-                    if (tweet_word.Equals(word_dic.word,StringComparison.OrdinalIgnoreCase))
+                    if (tweet_word.Contains(word_dic.word))
                     {
-                        temp.pos = (word_dic.posneg.Equals("positive",StringComparison.OrdinalIgnoreCase)) ? TTweet.positive.POSITIVE : TTweet.positive.NEGATIVE;
-                        temp.str = (word_dic.posneg.Equals("strongsubj",StringComparison.OrdinalIgnoreCase)) ? TTweet.strong.STRONG : TTweet.strong.WEAK;
+                        temp.pos = (word_dic.posneg.Contains("positive")) ? TTweet.positive.POSITIVE : TTweet.positive.NEGATIVE;
+                        temp.str = (word_dic.posneg.Contains("strongsubj")) ? TTweet.strong.STRONG : TTweet.strong.WEAK;
 
                         TTweet.subjectivity tempSub = new TTweet.subjectivity(true, true);
                         if (temp.pos == TTweet.positive.POSITIVE)
@@ -230,6 +230,7 @@ namespace Toast2._0_SH19
             }
         }
 
+        List<string> topN;
 
         private TTweetList AnalyzeList(IEnumerable<ITweet> tweets, IUser user)
         {
@@ -268,17 +269,46 @@ namespace Toast2._0_SH19
                 tempNeg = tempNeg / tweetCounter;
             }
 
-            tempList.positivity = (tempPos*0.6 - tempNeg*0.4d)*8;
+            
+            double c = 35+((tempPos - tempNeg*.5)/(tempPos + tempNeg*.5)*500);
+            if (tempPos == 0 && tempNeg == 0) c = 0;
+            Console.WriteLine(tempPos + "||" + tempNeg);
+            c = (c >= 100) ? 100 : c;
+            c = (c <= -100) ? -100 : c;
+            tempList.positivity = c;
 
             tempList.size = 
                 tempList.anger + tempList.disgust + tempList.fear + tempList.joy + tempList.surprise + tempList.sadness;
-
-            //Sort the world
-            wordCountList = wordCountList.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
             
+            wordCountList = wordCountList.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+
+            topN = new List<string>();
+            int countt = 0;
+            string line;
+            
+            
+            foreach (var item in wordCountList)
+                {
+                StreamReader file = new System.IO.StreamReader("DataClassify/NounList.csv");
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (item.Key.Equals(line) && countt < 10)
+                    {
+                        
+                        topN.Add(item.Key);
+                        countt++;
+                        if (countt > 10) return tempList;
+                    }
+                }
+            }
+
             return tempList;
         }
-        
+
+        public List<string> getListViewStringTop()
+        {
+            return topN;
+        }
 
         private Dictionary<string, int> wordCountList = new Dictionary<string, int>();
         
@@ -297,11 +327,11 @@ namespace Toast2._0_SH19
             var _list = AnalyzeList(tweets, user);
             var map = new Dictionary<string, double>();
 
-            double joyN =       Math.Round((((double)_list.joy        / (double)_list.size)*0.40d),3)*100;
+            double joyN =       Math.Round((((double)_list.joy        / (double)_list.size)*0.54),3)*100;
             double fearN =      Math.Round((((double)_list.fear       / (double)_list.size)*0.88d),3)*100;
             double angerN =     Math.Round((((double)_list.anger      / (double)_list.size)*0.98d),3)*100;
             double disgustN =   Math.Round((((double)_list.disgust    / (double)_list.size)*0.84d),3)*100;
-            double sadnessN =   Math.Round((((double)_list.sadness    / (double)_list.size)*0.57d),3)*100;
+            double sadnessN =   Math.Round((((double)_list.sadness    / (double)_list.size)*0.87d),3)*100;
             double surpriseN =  Math.Round((((double)_list.surprise   / (double)_list.size)*0.86d),3)*100;
 
             map.Add("Joy",joyN);
@@ -346,7 +376,7 @@ namespace Toast2._0_SH19
             map.Add("Extrovert",      (Math.Round((double)extrovert     / (double)personalityTotal, 3) * 100));
             map.Add("Conscientious",  (Math.Round((double)conscientious / (double)personalityTotal, 3) * 100));
             map.Add("Total",          (Math.Round((double)personalityTotal, 2) * 100));
-            map.Add("Positivity",     (Math.Round((double)_list.positivity, 2) * 100));
+            map.Add("Positivity",     (Math.Round((double)_list.positivity, 2)));
 
             return map;
         }
