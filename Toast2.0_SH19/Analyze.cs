@@ -231,7 +231,7 @@ namespace Toast2._0_SH19
         }
 
 
-        public TTweetList AnalyzeList(IEnumerable<ITweet> tweets, IUser user)
+        private TTweetList AnalyzeList(IEnumerable<ITweet> tweets, IUser user)
         {
             var tempList = new TTweetList();
             var temp = new List<TTweet>();
@@ -292,16 +292,24 @@ namespace Toast2._0_SH19
         }
     
     
-        public Dictionary<string, double> getPersonaities(TTweetList _list)
+        public Dictionary<string, double> getPersonaities(IEnumerable<ITweet> tweets, IUser user)
         {
+            var _list = AnalyzeList(tweets, user);
             var map = new Dictionary<string, double>();
 
-            double joyN = (double)_list.joy / (double)_list.size;
-            double fearN = (double)_list.fear / (double)_list.size;
-            double angerN = (double)_list.anger / (double)_list.size;
-            double disgustN = (double)_list.disgust / (double)_list.size;
-            double sadnessN = (double)_list.sadness / (double)_list.size;
-            double surpriseN = (double)_list.surprise / (double)_list.size;
+            double joyN =       Math.Round((double)_list.joy        / (double)_list.size,2)*100;
+            double fearN =      Math.Round((double)_list.fear       / (double)_list.size,2)*100;
+            double angerN =     Math.Round((double)_list.anger      / (double)_list.size,2)*100;
+            double disgustN =   Math.Round((double)_list.disgust    / (double)_list.size,2)*100;
+            double sadnessN =   Math.Round((double)_list.sadness    / (double)_list.size,2)*100;
+            double surpriseN =  Math.Round((double)_list.surprise   / (double)_list.size,2)*100;
+
+            map.Add("Joy",joyN);
+            map.Add("Fear", fearN);
+            map.Add("Anger", angerN);
+            map.Add("Disgust", disgustN);
+            map.Add("Sadness", sadnessN);
+            map.Add("Surprise", surpriseN);
 
             double neurotic = fearN * 0.5 + sadnessN * 0.9 + angerN * 0.5;
             double agreeable = joyN - disgustN * 0.5 - angerN * 0.4;
