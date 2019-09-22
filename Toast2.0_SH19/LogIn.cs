@@ -96,22 +96,18 @@ namespace Toast2._0_SH19
             double _tval = 0;
 
 
-
-                chart1.Series["Data1"].Points.Clear();
-                chart1.Series["Data1"].Points.AddXY(0, z.joy);
-                chart1.Series["Data1"].Points.AddXY(1, z.fear);
-                chart1.Series["Data1"].Points.AddXY(2, z.disgust);
-                chart1.Series["Data1"].Points.AddXY(3, z.surprise);
-                chart1.Series["Data1"].Points.AddXY(4, z.sadness);
-                chart1.Series["Data1"].Points.AddXY(5, z.anger);
-
-                chart2.Series["Data2"].Points.Clear();
-                chart2.Series["Data2"].Points.AddXY(0, z.joy);
-                chart2.Series["Data2"].Points.AddXY(1, z.fear);
-                chart2.Series["Data2"].Points.AddXY(2, z.disgust);
-                chart2.Series["Data2"].Points.AddXY(3, z.surprise);
-                chart2.Series["Data2"].Points.AddXY(4, z.sadness);
-                chart2.Series["Data2"].Points.AddXY(5, z.anger);
+     
+            chart2.Series["Data2"].Points.Clear();
+            z.TryGetValue("neurotic", out _tval);
+            chart2.Series["Data2"].Points.AddXY(0, _tval);
+            z.TryGetValue("agreeable", out _tval);
+            chart2.Series["Data2"].Points.AddXY(1, _tval);
+            z.TryGetValue("open", out _tval);
+            chart2.Series["Data2"].Points.AddXY(2, _tval);
+            z.TryGetValue("extrovert", out _tval);
+            chart2.Series["Data2"].Points.AddXY(3, _tval);
+            z.TryGetValue("conscientious", out _tval);
+            chart2.Series["Data2"].Points.AddXY(4, _tval);
 
             var followersHave = User.GetFollowers(us,1000);
             z.TryGetValue("Joy", out _tval);
@@ -148,9 +144,17 @@ namespace Toast2._0_SH19
             chart1.Series["Data1"].Points.AddXY(4, _tval);
             z.TryGetValue("Anger", out _tval);
             chart1.Series["Data1"].Points.AddXY(5, _tval);
-            
 
 
+            listView2.Items.Clear();
+
+            foreach (var item in followersHave)
+            {
+                listView2.Items.Add(item.ScreenName);
+            }
+            var followingHave = User.GetFriends(us, 1000);
+
+            listView3.Items.Clear();
             foreach (var item in followingHave)
             {
                 listView3.Items.Add(item.ScreenName);
