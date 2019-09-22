@@ -110,6 +110,14 @@ namespace Toast2._0_SH19
                 chart1.Series["Data1"].Points.AddXY(4, z.sadness);
                 chart1.Series["Data1"].Points.AddXY(5, z.anger);
 
+                chart2.Series["Data2"].Points.Clear();
+                chart2.Series["Data2"].Points.AddXY(0, z.joy);
+                chart2.Series["Data2"].Points.AddXY(1, z.fear);
+                chart2.Series["Data2"].Points.AddXY(2, z.disgust);
+                chart2.Series["Data2"].Points.AddXY(3, z.surprise);
+                chart2.Series["Data2"].Points.AddXY(4, z.sadness);
+                chart2.Series["Data2"].Points.AddXY(5, z.anger);
+
             var followersHave = User.GetFollowers(us,1000);
 
             listView2.Items.Clear();
@@ -252,6 +260,11 @@ namespace Toast2._0_SH19
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
         {
 
         }
