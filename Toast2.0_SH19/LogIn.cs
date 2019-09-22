@@ -98,15 +98,15 @@ namespace Toast2._0_SH19
 
      
             chart2.Series["Data2"].Points.Clear();
-            z.TryGetValue("neurotic", out _tval);
+            z.TryGetValue("Neurotic", out _tval);
             chart2.Series["Data2"].Points.AddXY(0, _tval);
-            z.TryGetValue("agreeable", out _tval);
+            z.TryGetValue("Agreeable", out _tval);
             chart2.Series["Data2"].Points.AddXY(1, _tval);
-            z.TryGetValue("open", out _tval);
+            z.TryGetValue("Open", out _tval);
             chart2.Series["Data2"].Points.AddXY(2, _tval);
-            z.TryGetValue("extrovert", out _tval);
+            z.TryGetValue("Extrovert", out _tval);
             chart2.Series["Data2"].Points.AddXY(3, _tval);
-            z.TryGetValue("conscientious", out _tval);
+            z.TryGetValue("Conscientious", out _tval);
             chart2.Series["Data2"].Points.AddXY(4, _tval);
 
             var followersHave = User.GetFollowers(us,1000);
