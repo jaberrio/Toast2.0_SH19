@@ -216,8 +216,8 @@ namespace Toast2._0_SH19
                 TTweet f = AnalyzeSingle(item);
                 temp.Add(f);
 
-                tempPos += f.getSubHits(TTweet.positive.POSITIVE, TTweet.strong.ALL);
-                tempNeg += f.getSubHits(TTweet.positive.NEGATIVE, TTweet.strong.ALL);
+                //tempPos += f.getSubHits(TTweet.positive.POSITIVE, TTweet.strong.ALL);
+                //tempNeg += f.getSubHits(TTweet.positive.NEGATIVE, TTweet.strong.ALL);
          
                 wordCounter += f.numWords;
                 tempList.anger += f.anger;
@@ -232,11 +232,11 @@ namespace Toast2._0_SH19
             if (tweetCounter != 0)
             {
                 tempList.tweetLength = wordCounter / tweetCounter;
-                tempPos = tempPos / tweetCounter;
-                tempNeg = tempNeg / tweetCounter;
+                //tempPos = tempPos / tweetCounter;
+                //tempNeg = tempNeg / tweetCounter;
             }
 
-            tempList.positivity = tempPos - tempNeg;
+            //tempList.positivity = tempPos - tempNeg;
 
             tempList.size = 
                 tempList.anger + tempList.disgust + tempList.fear + tempList.joy + tempList.surprise + tempList.sadness;
