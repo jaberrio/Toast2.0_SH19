@@ -83,12 +83,13 @@ namespace Toast2._0_SH19
             pictureBox.BorderStyle = BorderStyle.None;
 
             listView1.Items.Clear();
-
+            int tweetCount = 0;
             foreach (var item in tweets)
             {
+                tweetCount++;
                 listView1.Items.Add(item.Text);
             }
-
+            tweetNum.Text = "# of tweets calculated: " + tweetCount;
             Analyze a = new Analyze();
             var z = a.getPersonalities(tweets, us);
             double _tval = 0;
@@ -335,6 +336,16 @@ namespace Toast2._0_SH19
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
         {
 
         }
