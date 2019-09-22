@@ -316,5 +316,10 @@ namespace Toast2._0_SH19
 
             return map;
         }
+
+        public bool getPositivity(TTweetList _list)
+        {
+            return _list.positivity;
+        }
     }
 }
