@@ -175,10 +175,12 @@ namespace Toast2._0_SH19
             z.TryGetValue("Positivity", out _tval);
             if (_tval < 0)
             {
+                posotiveBar.Value = 0;
                 negativeBar.Value = -1 * ((int)_tval);
             }
             else
             {
+                negativeBar.Value = 0;
                 posotiveBar.Value = (int)_tval;
             }
 
