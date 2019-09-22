@@ -109,7 +109,7 @@ namespace Toast2._0_SH19
             z.TryGetValue("Conscientious", out _tval);
             chart2.Series["Data2"].Points.AddXY(4, _tval);
 
-            var followersHave = User.GetFollowers(us,1000);
+            
             z.TryGetValue("Joy", out _tval);
             joyLabel.Text = "Joy: " + _tval;
             
@@ -129,6 +129,22 @@ namespace Toast2._0_SH19
             angerLabel.Text = "Anger: " + _tval;
 
 
+            z.TryGetValue("Neurotic", out _tval);
+            neuroticLabel.Text = "Neurotic: " + _tval;
+
+            z.TryGetValue("Agreeable", out _tval);
+            agreeableLabel.Text = "Agreeable: " + _tval;
+
+            z.TryGetValue("Open", out _tval);
+            openLabel.Text = "Open: " + _tval;
+
+            z.TryGetValue("Extrovert", out _tval);
+            extrovertLabel.Text = "Extrovert: " + _tval;
+
+            z.TryGetValue("Conscientious", out _tval);
+            Conscientious.Text = "Conscientious: " + _tval;
+
+
 
             chart1.Series["Data1"].Points.Clear();
 
@@ -146,8 +162,10 @@ namespace Toast2._0_SH19
             chart1.Series["Data1"].Points.AddXY(5, _tval);
 
 
-            listView2.Items.Clear();
 
+            var followersHave = User.GetFollowers(us, 1000);
+            listView2.Items.Clear();
+            
             foreach (var item in followersHave)
             {
                 listView2.Items.Add(item.ScreenName);
@@ -159,6 +177,15 @@ namespace Toast2._0_SH19
             {
                 listView3.Items.Add(item.ScreenName);
             }
+            /*if(  < 0)
+            {
+                negativeBar.
+            }
+            else
+            {
+
+            }*/
+
         }
 
         private void pin_TextChanged(object sender, EventArgs e)
@@ -295,6 +322,11 @@ namespace Toast2._0_SH19
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart3_Click(object sender, EventArgs e)
         {
 
         }
