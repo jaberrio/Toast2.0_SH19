@@ -55,7 +55,7 @@ namespace Toast2._0_SH19
                     if (item.strong == false && (s == strong.WEAK || s == strong.ALL)) count++;
                 }
             }
-            return 0;
+            return count;
         }
     }
 
@@ -101,6 +101,9 @@ namespace Toast2._0_SH19
         public
             double 
             tweetLength;
+        public bool
+            positivity; //if true, then persons tweets are more positive than negative. 
+                        //if false, persons tweets are more negative than positive.
     }
 
     class Analyze
@@ -202,13 +205,22 @@ namespace Toast2._0_SH19
         {
             var tempList = new TTweetList();
             var temp = new List<TTweet>();
+
             int tweetCounter = 0;
             int wordCounter = 0;
+
+            double tempPos = 0;
+            double tempNeg = 0;
+
             foreach (var item in tweets)
             {
                 //Need to account for word and text lenght missing from TTWEET
                 TTweet f = AnalyzeSingle(item);
                 temp.Add(f);
+
+                tempPos += f.getSubHits(TTweet.positive.POSITIVE, TTweet.strong.ALL);
+                tempNeg += f.getSubHits(TTweet.positive.NEGATIVE, TTweet.strong.ALL);
+         
                 wordCounter += f.numWords;
                 tempList.anger += f.anger;
                 tempList.disgust += f.disgust;
@@ -219,16 +231,27 @@ namespace Toast2._0_SH19
                 tweetCounter++;
             }
 
-            tempList.tweetLength = wordCounter / tweetCounter;
-
+            if (tweetCounter != 0)
+            {
+                tempList.tweetLength = wordCounter / tweetCounter;
+                tempPos = tempPos / tweetCounter;
+                tempNeg = tempNeg / tweetCounter;
+                if (tempPos > tempNeg)
+                {
+                    tempList.positivity = true;
+                }
+                if (tempNeg > tempPos)
+                {
+                    tempList.positivity = false;
+                }
+            }
+            
             tempList.size = 
                 tempList.anger + tempList.disgust + tempList.fear + tempList.joy + tempList.surprise + tempList.sadness;
-
 
             //Sort the world
             wordCountList = wordCountList.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
             
-
             return tempList;
         }
         
@@ -293,6 +316,11 @@ namespace Toast2._0_SH19
             map.Add("Total", personalityTotal);
 
             return map;
+        }
+
+        public bool getPositivity(TTweetList _list)
+        {
+            return _list.positivity;
         }
     }
 }
