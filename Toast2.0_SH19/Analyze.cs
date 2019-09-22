@@ -55,7 +55,7 @@ namespace Toast2._0_SH19
                     if (item.strong == false && (s == strong.WEAK || s == strong.ALL)) count++;
                 }
             }
-            return 0;
+            return count;
         }
     }
 
@@ -100,7 +100,8 @@ namespace Toast2._0_SH19
             surprise;
         public
             double 
-            tweetLength;
+            tweetLength,
+            positivity; //How positive a persons tweets are
     }
 
     class Analyze
@@ -202,13 +203,22 @@ namespace Toast2._0_SH19
         {
             var tempList = new TTweetList();
             var temp = new List<TTweet>();
+
             int tweetCounter = 0;
             int wordCounter = 0;
+
+            double tempPos = 0;
+            double tempNeg = 0;
+
             foreach (var item in tweets)
             {
                 //Need to account for word and text lenght missing from TTWEET
                 TTweet f = AnalyzeSingle(item);
                 temp.Add(f);
+
+                //tempPos += f.getSubHits(TTweet.positive.POSITIVE, TTweet.strong.ALL);
+                //tempNeg += f.getSubHits(TTweet.positive.NEGATIVE, TTweet.strong.ALL);
+         
                 wordCounter += f.numWords;
                 tempList.anger += f.anger;
                 tempList.disgust += f.disgust;
@@ -219,16 +229,21 @@ namespace Toast2._0_SH19
                 tweetCounter++;
             }
 
-            tempList.tweetLength = wordCounter / tweetCounter;
+            if (tweetCounter != 0)
+            {
+                tempList.tweetLength = wordCounter / tweetCounter;
+                //tempPos = tempPos / tweetCounter;
+                //tempNeg = tempNeg / tweetCounter;
+            }
+
+            //tempList.positivity = tempPos - tempNeg;
 
             tempList.size = 
                 tempList.anger + tempList.disgust + tempList.fear + tempList.joy + tempList.surprise + tempList.sadness;
 
-
             //Sort the world
             wordCountList = wordCountList.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
             
-
             return tempList;
         }
         
@@ -301,6 +316,11 @@ namespace Toast2._0_SH19
             map.Add("Total", personalityTotal);
 
             return map;
+        }
+
+        public double getPositivity(TTweetList _list)
+        {
+            return _list.positivity;
         }
     }
 }

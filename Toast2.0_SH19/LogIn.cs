@@ -138,6 +138,10 @@ namespace Toast2._0_SH19
             
 
 
+            foreach (var item in followingHave)
+            {
+                listView3.Items.Add(item.ScreenName);
+            }
         }
 
         private void pin_TextChanged(object sender, EventArgs e)

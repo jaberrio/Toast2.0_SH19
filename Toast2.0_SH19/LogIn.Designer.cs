@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.userName = new System.Windows.Forms.TextBox();
             this.error = new System.Windows.Forms.Label();
             this.requestPin = new System.Windows.Forms.Button();
@@ -56,6 +56,10 @@
             this.polarGraphSurprise = new System.Windows.Forms.Label();
             this.polarGraphSadness = new System.Windows.Forms.Label();
             this.Anger = new System.Windows.Forms.Label();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView3 = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -65,7 +69,7 @@
             // userName
             // 
             this.userName.Location = new System.Drawing.Point(16, 145);
-            this.userName.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.userName.Margin = new System.Windows.Forms.Padding(8);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(374, 38);
             this.userName.TabIndex = 2;
@@ -88,7 +92,7 @@
             this.requestPin.FlatAppearance.BorderSize = 0;
             this.requestPin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.requestPin.Location = new System.Drawing.Point(16, 207);
-            this.requestPin.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.requestPin.Margin = new System.Windows.Forms.Padding(12);
             this.requestPin.Name = "requestPin";
             this.requestPin.Size = new System.Drawing.Size(380, 72);
             this.requestPin.TabIndex = 6;
@@ -112,7 +116,7 @@
             this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox.Location = new System.Drawing.Point(16, 461);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(8);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(376, 399);
             this.pictureBox.TabIndex = 10;
@@ -126,8 +130,8 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Tweets});
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(424, 461);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Location = new System.Drawing.Point(422, 463);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(900, 399);
             this.listView1.TabIndex = 11;
@@ -165,7 +169,7 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(2509, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(144, 66);
             this.pictureBox1.TabIndex = 15;
@@ -179,7 +183,7 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(2373, 10);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(144, 66);
             this.pictureBox2.TabIndex = 16;
@@ -260,26 +264,26 @@
             this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.chart1.BorderSkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.chart1.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            chartArea2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ZigZag;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Alignment = System.Drawing.StringAlignment.Far;
-            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            chartArea5.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ZigZag;
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Alignment = System.Drawing.StringAlignment.Far;
+            legend5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(1730, 236);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series2.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
-            series2.IsValueShownAsLabel = true;
-            series2.Legend = "Legend1";
-            series2.MarkerSize = 4;
-            series2.Name = "Data1";
-            this.chart1.Series.Add(series2);
+            series5.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
+            series5.IsValueShownAsLabel = true;
+            series5.Legend = "Legend1";
+            series5.MarkerSize = 4;
+            series5.Name = "Data1";
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(637, 624);
             this.chart1.TabIndex = 23;
             this.chart1.TabStop = false;
@@ -354,13 +358,55 @@
             this.Anger.TabIndex = 29;
             this.Anger.Text = "Anger";
             // 
+            // listView2
+            // 
+            this.listView2.AutoArrange = false;
+            this.listView2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.listView2.GridLines = true;
+            this.listView2.Location = new System.Drawing.Point(422, 883);
+            this.listView2.Margin = new System.Windows.Forms.Padding(4);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(476, 399);
+            this.listView2.TabIndex = 30;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Follower List";
+            this.columnHeader1.Width = 900;
+            // 
+            // listView3
+            // 
+            this.listView3.AutoArrange = false;
+            this.listView3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2});
+            this.listView3.GridLines = true;
+            this.listView3.Location = new System.Drawing.Point(936, 883);
+            this.listView3.Margin = new System.Windows.Forms.Padding(4);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(476, 399);
+            this.listView3.TabIndex = 31;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listView3.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Following List";
+            this.columnHeader2.Width = 900;
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(2676, 949);
+            this.ClientSize = new System.Drawing.Size(2676, 1612);
+            this.Controls.Add(this.listView3);
+            this.Controls.Add(this.listView2);
             this.Controls.Add(this.Anger);
             this.Controls.Add(this.polarGraphSadness);
             this.Controls.Add(this.polarGraphSurprise);
@@ -385,7 +431,7 @@
             this.Controls.Add(this.error);
             this.Controls.Add(this.userName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "LogIn";
             this.Text = "Emotion Tracker";
             this.Load += new System.EventHandler(this.LogIn_Load);
@@ -426,6 +472,10 @@
         private System.Windows.Forms.Label polarGraphSurprise;
         private System.Windows.Forms.Label polarGraphSadness;
         private System.Windows.Forms.Label Anger;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
 
