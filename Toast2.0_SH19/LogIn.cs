@@ -84,6 +84,7 @@ namespace Toast2._0_SH19
 
             listView1.Items.Clear();
 
+            int tweetCount = 0;
             if (tweets.Count<ITweet>() == 0) return;
             foreach (var item in tweets)
             {
@@ -94,10 +95,10 @@ namespace Toast2._0_SH19
             Analyze a = new Analyze();
             var z = a.getPersonalities(tweets, us);
             double _tval = 0;
-            
+            listView5.Items.Clear();
             foreach (var item in a.getListViewStringTop())
             {
-                listView4.Items.Add(item);
+                listView5.Items.Add(item);
             }
                 
             chart2.Series["Data2"].Points.Clear();

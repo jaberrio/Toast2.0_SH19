@@ -84,6 +84,8 @@
             this.tweetNum = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
+            this.listView5 = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -154,7 +156,7 @@
             this.Tweets});
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(160, 164);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(340, 108);
             this.listView1.TabIndex = 11;
@@ -192,7 +194,7 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(941, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(54, 28);
             this.pictureBox1.TabIndex = 15;
@@ -206,7 +208,7 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(890, 4);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(54, 28);
             this.pictureBox2.TabIndex = 16;
@@ -297,7 +299,7 @@
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(670, 35);
-            this.chart1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.chart1.Margin = new System.Windows.Forms.Padding(1);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series1.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
@@ -390,7 +392,7 @@
             this.columnHeader1});
             this.listView2.GridLines = true;
             this.listView2.Location = new System.Drawing.Point(160, 299);
-            this.listView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView2.Margin = new System.Windows.Forms.Padding(2);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(156, 224);
             this.listView2.TabIndex = 30;
@@ -410,7 +412,7 @@
             this.columnHeader2});
             this.listView3.GridLines = true;
             this.listView3.Location = new System.Drawing.Point(344, 299);
-            this.listView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView3.Margin = new System.Windows.Forms.Padding(2);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(156, 224);
             this.listView3.TabIndex = 31;
@@ -438,7 +440,7 @@
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
             this.chart2.Location = new System.Drawing.Point(670, 299);
-            this.chart2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.chart2.Margin = new System.Windows.Forms.Padding(1);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series2.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
@@ -608,6 +610,14 @@
             this.label4.TabIndex = 49;
             this.label4.Text = "0";
             // 
+            // listView4
+            // 
+            this.listView4.Location = new System.Drawing.Point(0, 0);
+            this.listView4.Name = "listView4";
+            this.listView4.Size = new System.Drawing.Size(121, 97);
+            this.listView4.TabIndex = 0;
+            this.listView4.UseCompatibleStateImageBehavior = false;
+            // 
             // tweetNum
             // 
             this.tweetNum.AutoSize = true;
@@ -642,6 +652,26 @@
             this.title.TabIndex = 52;
             this.title.Text = "Twitter Tweet Tracker";
             // 
+            // listView5
+            // 
+            this.listView5.AutoArrange = false;
+            this.listView5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.listView5.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4});
+            this.listView5.GridLines = true;
+            this.listView5.Location = new System.Drawing.Point(8, 369);
+            this.listView5.Margin = new System.Windows.Forms.Padding(2);
+            this.listView5.Name = "listView5";
+            this.listView5.Size = new System.Drawing.Size(140, 154);
+            this.listView5.TabIndex = 53;
+            this.listView5.UseCompatibleStateImageBehavior = false;
+            this.listView5.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Most Tweeted Nouns";
+            this.columnHeader4.Width = 900;
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -649,6 +679,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1004, 550);
+            this.Controls.Add(this.listView5);
             this.Controls.Add(this.title);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tweetNum);
@@ -761,6 +792,8 @@
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.ListView listView4;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ListView listView5;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
 
