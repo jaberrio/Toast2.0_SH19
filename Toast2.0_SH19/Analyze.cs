@@ -231,26 +231,27 @@ namespace Toast2._0_SH19
                 tweetCounter++;
             }
 
-            tempList.tweetLength = wordCounter / tweetCounter;
-            tempPos = tempPos / tweetCounter;
-            tempNeg = tempNeg / tweetCounter;
-            if (tempPos > tempNeg)
+            if (tweetCounter != 0)
             {
-                tempList.positivity = true;
+                tempList.tweetLength = wordCounter / tweetCounter;
+                tempPos = tempPos / tweetCounter;
+                tempNeg = tempNeg / tweetCounter;
+                if (tempPos > tempNeg)
+                {
+                    tempList.positivity = true;
+                }
+                if (tempNeg > tempPos)
+                {
+                    tempList.positivity = false;
+                }
             }
-            if (tempNeg > tempPos)
-            {
-                tempList.positivity = false;
-            }
-
+            
             tempList.size = 
                 tempList.anger + tempList.disgust + tempList.fear + tempList.joy + tempList.surprise + tempList.sadness;
-
 
             //Sort the world
             wordCountList = wordCountList.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
             
-
             return tempList;
         }
         
