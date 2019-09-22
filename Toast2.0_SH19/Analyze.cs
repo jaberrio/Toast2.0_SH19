@@ -43,7 +43,7 @@ namespace Toast2._0_SH19
             int count = 0;
             foreach (var item in subjectivities)
             {
-                //POSITIVE POSTIVE
+                //POSITIVE POSITIVE
                 if (item.positive == true && (p == positive.POSITIVE || p == positive.ALL))
                 {
                     if(item.strong == true  && (s == strong.STRONG  || s == strong.ALL))count++;
@@ -184,6 +184,8 @@ namespace Toast2._0_SH19
         
         public void pullSubjectiviityOut(string[] words, TTweet temp)
         {
+            temp.subjectivities = new List<TTweet.subjectivity>();
+
             foreach (var tweet_word in words)
             {
                 foreach (var word_dic in wordSbs)
@@ -192,6 +194,36 @@ namespace Toast2._0_SH19
                     {
                         temp.pos = (word_dic.posneg.Contains("positive")) ? TTweet.positive.POSITIVE : TTweet.positive.NEGATIVE;
                         temp.str = (word_dic.posneg.Contains("strongsubj")) ? TTweet.strong.STRONG : TTweet.strong.WEAK;
+
+                        TTweet.subjectivity tempSub = new TTweet.subjectivity(true, true);
+                        if (temp.pos == TTweet.positive.POSITIVE)
+                        {
+                            if (temp.str == TTweet.strong.STRONG)
+                            {
+                                tempSub.positive = true;
+                                tempSub.strong = true;
+                            }
+                            else if (temp.str == TTweet.strong.WEAK)
+                            {
+                                tempSub.positive = true;
+                                tempSub.strong = false;
+                            }
+                        }
+                        else if (temp.pos == TTweet.positive.NEGATIVE)
+                        {
+                            if (temp.str == TTweet.strong.STRONG)
+                            {
+                                tempSub.positive = false;
+                                tempSub.strong = true;
+                            }
+                            else if (temp.str == TTweet.strong.WEAK)
+                            {
+                                tempSub.positive = false;
+                                tempSub.strong = false;
+                            }
+                        }
+
+                        temp.subjectivities.Add(tempSub);
                         break;
                     }
                 }
@@ -216,8 +248,8 @@ namespace Toast2._0_SH19
                 TTweet f = AnalyzeSingle(item);
                 temp.Add(f);
 
-                //tempPos += f.getSubHits(TTweet.positive.POSITIVE, TTweet.strong.ALL);
-                //tempNeg += f.getSubHits(TTweet.positive.NEGATIVE, TTweet.strong.ALL);
+                tempPos += f.getSubHits(TTweet.positive.POSITIVE, TTweet.strong.ALL);
+                tempNeg += f.getSubHits(TTweet.positive.NEGATIVE, TTweet.strong.ALL);
          
                 wordCounter += f.numWords;
                 tempList.anger += f.anger;
@@ -232,11 +264,11 @@ namespace Toast2._0_SH19
             if (tweetCounter != 0)
             {
                 tempList.tweetLength = wordCounter / tweetCounter;
-                //tempPos = tempPos / tweetCounter;
-                //tempNeg = tempNeg / tweetCounter;
+                tempPos = tempPos / tweetCounter;
+                tempNeg = tempNeg / tweetCounter;
             }
 
-            //tempList.positivity = tempPos - tempNeg;
+            tempList.positivity = tempPos - tempNeg;
 
             tempList.size = 
                 tempList.anger + tempList.disgust + tempList.fear + tempList.joy + tempList.surprise + tempList.sadness;
