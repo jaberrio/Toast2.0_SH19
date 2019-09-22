@@ -297,12 +297,12 @@ namespace Toast2._0_SH19
             var _list = AnalyzeList(tweets, user);
             var map = new Dictionary<string, double>();
 
-            double joyN =       Math.Round((((double)_list.joy        / (double)_list.size)*54.4d),2);
-            double fearN =      Math.Round((((double)_list.fear       / (double)_list.size)*88.0d),2);
-            double angerN =     Math.Round((((double)_list.anger      / (double)_list.size)*98.3d),2);
-            double disgustN =   Math.Round((((double)_list.disgust    / (double)_list.size)*84.8d),2);
-            double sadnessN =   Math.Round((((double)_list.sadness    / (double)_list.size)*87.7d),2);
-            double surpriseN =  Math.Round((((double)_list.surprise   / (double)_list.size)*86.7d),2);
+            double joyN =       Math.Round((((double)_list.joy        / (double)_list.size)*0.54d),3)*100;
+            double fearN =      Math.Round((((double)_list.fear       / (double)_list.size)*0.88d),3)*100;
+            double angerN =     Math.Round((((double)_list.anger      / (double)_list.size)*0.98d),3)*100;
+            double disgustN =   Math.Round((((double)_list.disgust    / (double)_list.size)*0.84d),3)*100;
+            double sadnessN =   Math.Round((((double)_list.sadness    / (double)_list.size)*0.87d),3)*100;
+            double surpriseN =  Math.Round((((double)_list.surprise   / (double)_list.size)*0.86d),3)*100;
 
             map.Add("Joy",joyN);
             map.Add("Fear", fearN);
@@ -340,11 +340,11 @@ namespace Toast2._0_SH19
 
             double personalityTotal = neurotic + agreeable + open + extrovert + conscientious;
 
-            map.Add("Neurotic",       (Math.Round((double)neurotic      / (double)personalityTotal, 2) * 100));
-            map.Add("Agreeable",      (Math.Round((double)agreeable     / (double)personalityTotal, 2) * 100));
-            map.Add("Open",           (Math.Round((double)open          / (double)personalityTotal, 2) * 100));
-            map.Add("Extrovert",      (Math.Round((double)extrovert     / (double)personalityTotal, 2) * 100));
-            map.Add("Conscientious",  (Math.Round((double)conscientious / (double)personalityTotal, 2) * 100));
+            map.Add("Neurotic",       (Math.Round((double)neurotic      / (double)personalityTotal, 3) * 100));
+            map.Add("Agreeable",      (Math.Round((double)agreeable     / (double)personalityTotal, 3) * 100));
+            map.Add("Open",           (Math.Round((double)open          / (double)personalityTotal, 3) * 100));
+            map.Add("Extrovert",      (Math.Round((double)extrovert     / (double)personalityTotal, 3) * 100));
+            map.Add("Conscientious",  (Math.Round((double)conscientious / (double)personalityTotal, 3) * 100));
             map.Add("Total",          (Math.Round((double)personalityTotal, 2) * 100));
 
             return map;
