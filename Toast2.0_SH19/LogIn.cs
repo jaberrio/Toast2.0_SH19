@@ -46,12 +46,10 @@ namespace Toast2._0_SH19
 
         }
         
+        ITwitterCredentials appCreds = Auth.SetApplicationOnlyCredentials("eGr9HEC4100Ru5ysWQC4JtODI", "xsYHSKZ54y9cgl1zwq4L21FXgrAj5bzkMWjBk0BdLhLRyiiIiT", true);
 
         private void requestPin_Click(object sender, EventArgs e)
         {
-            var appCreds = Auth.SetApplicationOnlyCredentials("eGr9HEC4100Ru5ysWQC4JtODI", "xsYHSKZ54y9cgl1zwq4L21FXgrAj5bzkMWjBk0BdLhLRyiiIiT", true);
-
-
             var us = User.GetUserFromScreenName(userName.Text);
             try
             {
@@ -109,7 +107,7 @@ namespace Toast2._0_SH19
             z.TryGetValue("Conscientious", out _tval);
             chart2.Series["Data2"].Points.AddXY(4, _tval);
 
-            
+            var followersHave = User.GetFollowers(us,250);
             z.TryGetValue("Joy", out _tval);
             joyLabel.Text = "Joy: " + _tval;
             
@@ -160,10 +158,7 @@ namespace Toast2._0_SH19
             chart1.Series["Data1"].Points.AddXY(4, _tval);
             z.TryGetValue("Anger", out _tval);
             chart1.Series["Data1"].Points.AddXY(5, _tval);
-
-
-
-            var followersHave = User.GetFollowers(us, 1000);
+            
             listView2.Items.Clear();
             
             foreach (var item in followersHave)
