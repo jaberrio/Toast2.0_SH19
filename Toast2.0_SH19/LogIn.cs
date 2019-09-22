@@ -35,16 +35,17 @@ namespace Toast2._0_SH19
         {
 
         }
-        
+
         private void enter_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label1_Click_1(object sender, EventArgs e)
         {
-            
+
         }
+        
 
         private void requestPin_Click(object sender, EventArgs e)
         {
@@ -53,62 +54,89 @@ namespace Toast2._0_SH19
 
             var us = User.GetUserFromScreenName(userName.Text);
             try
-            { 
+            {
                 label1.Text = us.Name;
-                error.Text = ""; 
+                error.Text = "";
             }
-            catch(Exception r)
+            catch (Exception r)
             {
                 error.Text = "The user you have entered is incorrect, please try again";
                 return;
             }
-            
-                
+
+
             followers.Text = "Followers: " + us.FollowersCount.ToString();
-                following.Text = "Following: " + us.FriendsCount.ToString();
+            following.Text = "Following: " + us.FriendsCount.ToString();
 
-                var utp = new UserTimelineParameters
-                {
-                    MaximumNumberOfTweetsToRetrieve = 1000
-                };
+            var utp = new UserTimelineParameters
+            {
+                MaximumNumberOfTweetsToRetrieve = 1500
+            };
 
-                var tweets = Timeline.GetUserTimeline(us, utp);
+            var tweets = Timeline.GetUserTimeline(us, utp);
 
-                WebClient wc = new WebClient();
-                byte[] bytes = wc.DownloadData(us.ProfileImageUrlFullSize);
-                MemoryStream ms = new MemoryStream(bytes);
-                System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
-                pictureBox.Image = img;
-                pictureBox.Update();
-                pictureBox.BackColor = Color.Transparent;
-                pictureBox.BorderStyle = BorderStyle.None;
+            WebClient wc = new WebClient();
+            byte[] bytes = wc.DownloadData(us.ProfileImageUrlFullSize);
+            MemoryStream ms = new MemoryStream(bytes);
+            System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+            pictureBox.Image = img;
+            pictureBox.Update();
+            pictureBox.BackColor = Color.Transparent;
+            pictureBox.BorderStyle = BorderStyle.None;
 
-                listView1.Items.Clear();
+            listView1.Items.Clear();
 
-                foreach (var item in tweets)
-                {
-                    listView1.Items.Add(item.Text);
-                }
+            foreach (var item in tweets)
+            {
+                listView1.Items.Add(item.Text);
+            }
 
-                Analyze a = new Analyze();
-                var z = a.AnalyzeList(tweets, us);
-                joyLabel.Text = "Joy: " + z.joy;
-                fearLabel.Text = "Fear: " + z.fear;
-                disgustLabel.Text = "Disgust: " + z.disgust;
-                surpriseLabel.Text = "Surprise: " + z.surprise;
-                sadnessLabel.Text = "Sadness: " + z.sadness;
-                angerLabel.Text = "Anger: " + z.anger;
+            Analyze a = new Analyze();
+            var z = a.getPersonaities(tweets, us);
+            double _tval = 0;
 
-
-
-                chart1.Series["Data1"].Points.Clear();
-                chart1.Series["Data1"].Points.AddXY(0, z.joy);
-                chart1.Series["Data1"].Points.AddXY(1, z.fear);
-                chart1.Series["Data1"].Points.AddXY(2, z.disgust);
-                chart1.Series["Data1"].Points.AddXY(3, z.surprise);
-                chart1.Series["Data1"].Points.AddXY(4, z.sadness);
-                chart1.Series["Data1"].Points.AddXY(5, z.anger);
+            z.TryGetValue("Joy", out _tval);
+            joyLabel.Text = "Joy: " + _tval;
             
+            z.TryGetValue("Fear", out _tval);
+            fearLabel.Text = "Fear: " + _tval;
+            
+            z.TryGetValue("Disgust", out _tval);
+            disgustLabel.Text = "Disgust: " + _tval;
+            
+            z.TryGetValue("Surprise", out _tval);
+            surpriseLabel.Text = "Surprise: " + _tval;
+
+            z.TryGetValue("Sadness", out _tval);
+            sadnessLabel.Text = "Sadness: " + _tval;
+
+            z.TryGetValue("Anger", out _tval);
+            angerLabel.Text = "Anger: " + _tval;
+
+
+
+            chart1.Series["Data1"].Points.Clear();
+
+            z.TryGetValue("Joy", out _tval);
+            chart1.Series["Data1"].Points.AddXY(0, _tval);
+            outputFile.Write(_tval + ",");
+            z.TryGetValue("Fear", out _tval);
+            chart1.Series["Data1"].Points.AddXY(1, _tval);
+            outputFile.Write(_tval + ",");
+            z.TryGetValue("Disgust", out _tval);
+            chart1.Series["Data1"].Points.AddXY(2, _tval);
+            outputFile.Write(_tval + ",");
+            z.TryGetValue("Surprise", out _tval);
+            chart1.Series["Data1"].Points.AddXY(3, _tval);
+            outputFile.Write(_tval + ",");
+            z.TryGetValue("Sadness", out _tval);
+            chart1.Series["Data1"].Points.AddXY(4, _tval);
+            outputFile.Write(_tval + ",");
+            z.TryGetValue("Anger", out _tval);
+            chart1.Series["Data1"].Points.AddXY(5, _tval);
+            outputFile.Write(_tval + ",");
+            
+
 
         }
 
@@ -149,7 +177,7 @@ namespace Toast2._0_SH19
         bool isMove = false;
         private void LogIn_MouseMove(object sender, MouseEventArgs e)
         {
-            
+
             if (mouseDownPoint.IsEmpty)
             {
                 isMove = false;
@@ -159,12 +187,12 @@ namespace Toast2._0_SH19
             {
                 isMove = true;
             }
-            if(isMove)
+            if (isMove)
             {
                 Form f = sender as Form;
                 f.Location = new Point(f.Location.X + (e.X - mouseDownPoint.X), f.Location.Y + (e.Y - mouseDownPoint.Y));
             }
-         }
+        }
 
         private void LogIn_MouseUp(object sender, MouseEventArgs e)
         {
@@ -175,10 +203,10 @@ namespace Toast2._0_SH19
         {
             this.pictureBox2.BackgroundImage = temp;
         }
-            Image temp = new Bitmap("Photos/-22.png");
-            Image temp3 = new Bitmap("Photos/-.png");
-            Image temp2 = new Bitmap("Photos/x22.png");
-            Image temp1 = new Bitmap("Photos/x2.png");
+        Image temp = new Bitmap("Photos/-22.png");
+        Image temp3 = new Bitmap("Photos/-.png");
+        Image temp2 = new Bitmap("Photos/x22.png");
+        Image temp1 = new Bitmap("Photos/x2.png");
 
         private void pictureBox2_MouseLeave(object sender, EventArgs e)
         {
