@@ -92,7 +92,7 @@ namespace Toast2._0_SH19
             }
 
             Analyze a = new Analyze();
-            var z = a.getPersonaities(tweets, us);
+            var z = a.getPersonalities(tweets, us);
             double _tval = 0;
 
 
@@ -290,6 +290,11 @@ namespace Toast2._0_SH19
         }
 
         private void chart2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
