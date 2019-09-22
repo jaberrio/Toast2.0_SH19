@@ -178,7 +178,7 @@ namespace Toast2._0_SH19
             z.TryGetValue("Positivity", out _tval);
             if (_tval < 0)
             {
-                negativeBar.Value = (int)_tval;
+                negativeBar.Value = -1 * ((int)_tval);
             }
             else
             {
@@ -331,6 +331,11 @@ namespace Toast2._0_SH19
         }
 
         private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
