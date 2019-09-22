@@ -100,10 +100,8 @@ namespace Toast2._0_SH19
             surprise;
         public
             double 
-            tweetLength;
-        public bool
-            positivity; //if true, then persons tweets are more positive than negative. 
-                        //if false, persons tweets are more negative than positive.
+            tweetLength,
+            positivity; //How positive a persons tweets are
     }
 
     class Analyze
@@ -236,16 +234,10 @@ namespace Toast2._0_SH19
                 tempList.tweetLength = wordCounter / tweetCounter;
                 tempPos = tempPos / tweetCounter;
                 tempNeg = tempNeg / tweetCounter;
-                if (tempPos > tempNeg)
-                {
-                    tempList.positivity = true;
-                }
-                if (tempNeg > tempPos)
-                {
-                    tempList.positivity = false;
-                }
             }
-            
+
+            tempList.positivity = tempPos - tempNeg;
+
             tempList.size = 
                 tempList.anger + tempList.disgust + tempList.fear + tempList.joy + tempList.surprise + tempList.sadness;
 
@@ -318,7 +310,7 @@ namespace Toast2._0_SH19
             return map;
         }
 
-        public bool getPositivity(TTweetList _list)
+        public double getPositivity(TTweetList _list)
         {
             return _list.positivity;
         }
