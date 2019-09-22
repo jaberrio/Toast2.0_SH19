@@ -83,7 +83,6 @@ namespace Toast2._0_SH19
             pictureBox.BorderStyle = BorderStyle.None;
 
             listView1.Items.Clear();
-
             int tweetCount = 0;
             if (tweets.Count<ITweet>() == 0) return;
             foreach (var item in tweets)
@@ -95,7 +94,7 @@ namespace Toast2._0_SH19
             Analyze a = new Analyze();
             var z = a.getPersonalities(tweets, us);
             double _tval = 0;
-            listView5.Items.Clear();
+            
             foreach (var item in a.getListViewStringTop())
             {
                 listView5.Items.Add(item);
@@ -356,6 +355,11 @@ namespace Toast2._0_SH19
         }
 
         private void negativeBar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView5_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
