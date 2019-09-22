@@ -83,7 +83,8 @@ namespace Toast2._0_SH19
             pictureBox.BorderStyle = BorderStyle.None;
 
             listView1.Items.Clear();
-            int tweetCount = 0;
+
+            if (tweets.Count<ITweet>() == 0) return;
             foreach (var item in tweets)
             {
                 tweetCount++;
@@ -93,9 +94,12 @@ namespace Toast2._0_SH19
             Analyze a = new Analyze();
             var z = a.getPersonalities(tweets, us);
             double _tval = 0;
-
-
-     
+            
+            foreach (var item in a.getListViewStringTop())
+            {
+                listView4.Items.Add(item);
+            }
+                
             chart2.Series["Data2"].Points.Clear();
             z.TryGetValue("Neurotic", out _tval);
             chart2.Series["Data2"].Points.AddXY(0, _tval);
@@ -177,7 +181,7 @@ namespace Toast2._0_SH19
             if (_tval < 0)
             {
                 posotiveBar.Value = 0;
-                negativeBar.Value = -1 * ((int)_tval);
+                negativeBar.Value = (int)(-1 * _tval);
             }
             else
             {
@@ -346,6 +350,11 @@ namespace Toast2._0_SH19
         }
 
         private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void negativeBar_Click(object sender, EventArgs e)
         {
 
         }

@@ -189,6 +189,9 @@
     <None Include="DataClassify\emotions.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="DataClassify\NounList.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="DataClassify\subjectivity.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -79,6 +79,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.listView4 = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tweetNum = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
@@ -573,6 +575,7 @@
             this.negativeBar.RightToLeftLayout = true;
             this.negativeBar.Size = new System.Drawing.Size(172, 33);
             this.negativeBar.TabIndex = 46;
+            this.negativeBar.Click += new System.EventHandler(this.negativeBar_Click);
             // 
             // label2
             // 
@@ -756,6 +759,8 @@
         private System.Windows.Forms.Label tweetNum;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label title;
+        private System.Windows.Forms.ListView listView4;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
 
