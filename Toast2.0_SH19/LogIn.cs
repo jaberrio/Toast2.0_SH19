@@ -65,9 +65,10 @@ namespace Toast2._0_SH19
             
                 
             followers.Text = "Followers: " + us.FollowersCount.ToString();
-                following.Text = "Following: " + us.FriendsCount.ToString();
+            following.Text = "Following: " + us.FriendsCount.ToString();
+            
 
-                var utp = new UserTimelineParameters
+            var utp = new UserTimelineParameters
                 {
                     MaximumNumberOfTweetsToRetrieve = 1000
                 };
