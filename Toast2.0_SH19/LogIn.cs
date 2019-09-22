@@ -109,8 +109,23 @@ namespace Toast2._0_SH19
                 chart1.Series["Data1"].Points.AddXY(3, z.surprise);
                 chart1.Series["Data1"].Points.AddXY(4, z.sadness);
                 chart1.Series["Data1"].Points.AddXY(5, z.anger);
-            
 
+            var followersHave = User.GetFollowers(us,1000);
+
+            listView2.Items.Clear();
+
+            foreach (var item in followersHave)
+            {
+                listView2.Items.Add(item.ScreenName);
+            }
+            var followingHave = User.GetFriends(us, 1000);
+
+            listView3.Items.Clear();
+
+            foreach (var item in followingHave)
+            {
+                listView3.Items.Add(item.ScreenName);
+            }
         }
 
         private void pin_TextChanged(object sender, EventArgs e)
