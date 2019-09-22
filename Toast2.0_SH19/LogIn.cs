@@ -119,22 +119,16 @@ namespace Toast2._0_SH19
 
             z.TryGetValue("Joy", out _tval);
             chart1.Series["Data1"].Points.AddXY(0, _tval);
-            outputFile.Write(_tval + ",");
             z.TryGetValue("Fear", out _tval);
             chart1.Series["Data1"].Points.AddXY(1, _tval);
-            outputFile.Write(_tval + ",");
             z.TryGetValue("Disgust", out _tval);
             chart1.Series["Data1"].Points.AddXY(2, _tval);
-            outputFile.Write(_tval + ",");
             z.TryGetValue("Surprise", out _tval);
             chart1.Series["Data1"].Points.AddXY(3, _tval);
-            outputFile.Write(_tval + ",");
             z.TryGetValue("Sadness", out _tval);
             chart1.Series["Data1"].Points.AddXY(4, _tval);
-            outputFile.Write(_tval + ",");
             z.TryGetValue("Anger", out _tval);
             chart1.Series["Data1"].Points.AddXY(5, _tval);
-            outputFile.Write(_tval + ",");
             
 
 
