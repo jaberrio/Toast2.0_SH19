@@ -12,4 +12,4 @@ Project name: Twitter Tweet Tracker
 API's Used:
 Studies Used:
 
-![alt text](Resourses/Images/CnnScreenshot.PNG =250x)
+![alt text](Resourses/Images/CnnScreenshot.PNG)
