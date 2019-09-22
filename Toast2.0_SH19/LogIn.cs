@@ -177,13 +177,14 @@ namespace Toast2._0_SH19
             {
                 listView3.Items.Add(item.ScreenName);
             }
-            if(/*a.getPositivity(z)*/4 < 0)
+            z.TryGetValue("Positivity", out _tval);
+            if (_tval < 0)
             {
-                negativeBar.Value = 5;
+                negativeBar.Value = (int)_tval;
             }
             else
             {
-                posotiveBar.Value = 5;
+                posotiveBar.Value = (int)_tval;
             }
 
         }
