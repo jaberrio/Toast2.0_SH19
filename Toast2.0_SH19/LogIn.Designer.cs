@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.userName = new System.Windows.Forms.TextBox();
             this.error = new System.Windows.Forms.Label();
             this.requestPin = new System.Windows.Forms.Button();
@@ -86,6 +86,7 @@
             this.title = new System.Windows.Forms.Label();
             this.listView5 = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -95,7 +96,7 @@
             // 
             // userName
             // 
-            this.userName.Location = new System.Drawing.Point(8, 52);
+            this.userName.Location = new System.Drawing.Point(11, 49);
             this.userName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(189, 22);
@@ -106,7 +107,7 @@
             // 
             this.error.AutoSize = true;
             this.error.ForeColor = System.Drawing.Color.Red;
-            this.error.Location = new System.Drawing.Point(13, 22);
+            this.error.Location = new System.Drawing.Point(210, 22);
             this.error.Name = "error";
             this.error.Size = new System.Drawing.Size(0, 17);
             this.error.TabIndex = 5;
@@ -120,7 +121,7 @@
             this.requestPin.Location = new System.Drawing.Point(8, 81);
             this.requestPin.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.requestPin.Name = "requestPin";
-            this.requestPin.Size = new System.Drawing.Size(189, 37);
+            this.requestPin.Size = new System.Drawing.Size(189, 46);
             this.requestPin.TabIndex = 6;
             this.requestPin.Text = "Search Person";
             this.requestPin.UseVisualStyleBackColor = false;
@@ -281,27 +282,27 @@
             this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.chart1.BorderSkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.chart1.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            chartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ZigZag;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Alignment = System.Drawing.StringAlignment.Far;
-            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            chartArea11.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ZigZag;
+            chartArea11.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea11);
+            legend11.Alignment = System.Drawing.StringAlignment.Far;
+            legend11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            legend11.Enabled = false;
+            legend11.Name = "Legend1";
+            this.chart1.Legends.Add(legend11);
             this.chart1.Location = new System.Drawing.Point(893, 43);
             this.chart1.Margin = new System.Windows.Forms.Padding(1);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
-            series1.IsValueShownAsLabel = true;
-            series1.Legend = "Legend1";
-            series1.MarkerSize = 4;
-            series1.Name = "Data1";
-            this.chart1.Series.Add(series1);
+            series11.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
+            series11.IsValueShownAsLabel = true;
+            series11.Legend = "Legend1";
+            series11.MarkerSize = 4;
+            series11.Name = "Data1";
+            this.chart1.Series.Add(series11);
             this.chart1.Size = new System.Drawing.Size(344, 294);
             this.chart1.TabIndex = 23;
             this.chart1.TabStop = false;
@@ -416,27 +417,27 @@
             this.chart2.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.chart2.BorderSkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.chart2.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            chartArea2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ZigZag;
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            legend2.Alignment = System.Drawing.StringAlignment.Far;
-            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
+            chartArea12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            chartArea12.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ZigZag;
+            chartArea12.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea12);
+            legend12.Alignment = System.Drawing.StringAlignment.Far;
+            legend12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            legend12.Enabled = false;
+            legend12.Name = "Legend1";
+            this.chart2.Legends.Add(legend12);
             this.chart2.Location = new System.Drawing.Point(893, 368);
             this.chart2.Margin = new System.Windows.Forms.Padding(1);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series2.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
-            series2.IsValueShownAsLabel = true;
-            series2.Legend = "Legend1";
-            series2.MarkerSize = 4;
-            series2.Name = "Data2";
-            this.chart2.Series.Add(series2);
+            series12.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
+            series12.IsValueShownAsLabel = true;
+            series12.Legend = "Legend1";
+            series12.MarkerSize = 4;
+            series12.Name = "Data2";
+            this.chart2.Series.Add(series12);
             this.chart2.Size = new System.Drawing.Size(344, 294);
             this.chart2.TabIndex = 32;
             this.chart2.TabStop = false;
@@ -645,6 +646,15 @@
             this.columnHeader4.Text = "Most Tweeted Nouns";
             this.columnHeader4.Width = 900;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(36, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(146, 17);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "Enter Username Here";
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -652,6 +662,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(228)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1339, 677);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.listView5);
             this.Controls.Add(this.title);
             this.Controls.Add(this.label5);
@@ -767,6 +778,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ListView listView5;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Label label6;
     }
 }
 
