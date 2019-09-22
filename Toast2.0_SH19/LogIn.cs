@@ -87,9 +87,10 @@ namespace Toast2._0_SH19
             if (tweets.Count<ITweet>() == 0) return;
             foreach (var item in tweets)
             {
+                tweetCount++;
                 listView1.Items.Add(item.Text);
             }
-
+            tweetNum.Text = "# of tweets calculated: " + tweetCount;
             Analyze a = new Analyze();
             var z = a.getPersonalities(tweets, us);
             double _tval = 0;
@@ -339,6 +340,16 @@ namespace Toast2._0_SH19
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
         {
 
         }
