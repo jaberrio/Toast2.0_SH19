@@ -26,31 +26,12 @@ namespace Toast2._0_SH19
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
-        private void LogIn_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void enter_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-        
         ITwitterCredentials appCreds = Auth.SetApplicationOnlyCredentials("eGr9HEC4100Ru5ysWQC4JtODI", "xsYHSKZ54y9cgl1zwq4L21FXgrAj5bzkMWjBk0BdLhLRyiiIiT", true);
 
         private void requestPin_Click(object sender, EventArgs e)
         {
             var us = User.GetUserFromScreenName(userName.Text);
+
             try
             {
                 label1.Text = us.Name;
@@ -68,7 +49,7 @@ namespace Toast2._0_SH19
 
             var utp = new UserTimelineParameters
             {
-                MaximumNumberOfTweetsToRetrieve = 1500
+                MaximumNumberOfTweetsToRetrieve = 300
             };
 
             var tweets = Timeline.GetUserTimeline(us, utp);
@@ -94,25 +75,24 @@ namespace Toast2._0_SH19
             Analyze a = new Analyze();
             var z = a.getPersonalities(tweets, us);
             double _tval = 0;
-            
+
             foreach (var item in a.getListViewStringTop())
             {
                 listView5.Items.Add(item);
             }
-                
+            var emoS = new string[] { "Joy", "Fear", "Disgust", "Surprise", "Sadness", "Anger" };
+            var bigS = new string[] { "Neurotic", "Agreeable", "Open", "Extroverted", "Conscientious" };
+
+
             chart2.Series["Data2"].Points.Clear();
-            z.TryGetValue("Neurotic", out _tval);
-            chart2.Series["Data2"].Points.AddXY(0, _tval);
-            z.TryGetValue("Agreeable", out _tval);
-            chart2.Series["Data2"].Points.AddXY(1, _tval);
-            z.TryGetValue("Open", out _tval);
-            chart2.Series["Data2"].Points.AddXY(2, _tval);
-            z.TryGetValue("Extrovert", out _tval);
-            chart2.Series["Data2"].Points.AddXY(3, _tval);
-            z.TryGetValue("Conscientious", out _tval);
-            chart2.Series["Data2"].Points.AddXY(4, _tval);
+            for (int i = 0; i < bigS.Length; i++)
+            {
+            z.TryGetValue(bigS[i], out _tval);
+            chart2.Series["Data2"].Points.AddXY(i, _tval);
+            }
 
             var followersHave = User.GetFollowers(us,250);
+
             z.TryGetValue("Joy", out _tval);
             joyLabel.Text = "Joy: " + _tval;
             
@@ -130,6 +110,7 @@ namespace Toast2._0_SH19
 
             z.TryGetValue("Anger", out _tval);
             angerLabel.Text = "Anger: " + _tval;
+                                    
 
 
             z.TryGetValue("Neurotic", out _tval);
@@ -146,23 +127,14 @@ namespace Toast2._0_SH19
 
             z.TryGetValue("Conscientious", out _tval);
             Conscientious.Text = "Conscientious: " + _tval;
-
-
+                        
 
             chart1.Series["Data1"].Points.Clear();
-
-            z.TryGetValue("Joy", out _tval);
-            chart1.Series["Data1"].Points.AddXY(0, _tval);
-            z.TryGetValue("Fear", out _tval);
-            chart1.Series["Data1"].Points.AddXY(1, _tval);
-            z.TryGetValue("Disgust", out _tval);
-            chart1.Series["Data1"].Points.AddXY(2, _tval);
-            z.TryGetValue("Surprise", out _tval);
-            chart1.Series["Data1"].Points.AddXY(3, _tval);
-            z.TryGetValue("Sadness", out _tval);
-            chart1.Series["Data1"].Points.AddXY(4, _tval);
-            z.TryGetValue("Anger", out _tval);
-            chart1.Series["Data1"].Points.AddXY(5, _tval);
+            for (int i = 0; i < emoS.Length; i++)
+            {
+                z.TryGetValue(emoS[i], out _tval);
+                chart1.Series["Data1"].Points.AddXY(i, _tval);
+            }
             
             listView2.Items.Clear();
             
@@ -191,41 +163,26 @@ namespace Toast2._0_SH19
 
         }
 
-        private void pin_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void followers_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void pictureBox_Click(object sender, EventArgs e)
         {
 
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
+                  
         Point mouseDownPoint = Point.Empty;
+        bool isMove = false;
+
         private void LogIn_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDownPoint = new Point(e.X, e.Y);
         }
-        bool isMove = false;
         private void LogIn_MouseMove(object sender, MouseEventArgs e)
         {
 
@@ -244,124 +201,137 @@ namespace Toast2._0_SH19
                 f.Location = new Point(f.Location.X + (e.X - mouseDownPoint.X), f.Location.Y + (e.Y - mouseDownPoint.Y));
             }
         }
-
         private void LogIn_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDownPoint = Point.Empty;
         }
-
-        private void pictureBox2_MouseEnter(object sender, EventArgs e)
-        {
-            this.pictureBox2.BackgroundImage = temp;
-        }
+                                 
         Image temp = new Bitmap("Photos/-22.png");
         Image temp3 = new Bitmap("Photos/-.png");
         Image temp2 = new Bitmap("Photos/x22.png");
         Image temp1 = new Bitmap("Photos/x2.png");
 
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
-        {
-            this.pictureBox2.BackgroundImage = temp3;
-        }
-
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             this.pictureBox1.BackgroundImage = temp2;
         }
-
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
             this.pictureBox1.BackgroundImage = temp1;
         }
-
-        private void sadnessLabel_Click(object sender, EventArgs e)
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
         {
-
+            this.pictureBox2.BackgroundImage = temp;
         }
-
-        private void surpriseLabel_Click(object sender, EventArgs e)
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
         {
-
+            this.pictureBox2.BackgroundImage = temp3;
         }
-
-        private void angerLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void joyLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fearLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void disgustLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chart2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+          
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+        private void listView5_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }      
+        private void sadnessLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void surpriseLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void angerLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void pin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void joyLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+        private void fearLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void disgustLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void enter_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void chart2_Click(object sender, EventArgs e)
+        {
+
+        }
         private void chart3_Click(object sender, EventArgs e)
         {
 
         }
+        private void followers_Click(object sender, EventArgs e)
+        {
 
+        }
         private void label2_Click_1(object sender, EventArgs e)
         {
 
         }
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
+        }
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label5_Click_1(object sender, EventArgs e)
         {
 
         }
+        private void label5_Click(object sender, EventArgs e)
+        {
 
+        }
         private void negativeBar_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void listView5_SelectedIndexChanged(object sender, EventArgs e)
+        private void title_Click(object sender, EventArgs e)
         {
 
         }
+                      
     }
 }
