@@ -38,7 +38,7 @@
             this.userName = new System.Windows.Forms.TextBox();
             this.error = new System.Windows.Forms.Label();
             this.requestPin = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.userNamelabel = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Tweets = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -69,7 +69,7 @@
             this.polarGraph2Conscientious = new System.Windows.Forms.Label();
             this.polarGraph2Open = new System.Windows.Forms.Label();
             this.polarGraph2Extrovert = new System.Windows.Forms.Label();
-            this.Conscientious = new System.Windows.Forms.Label();
+            this.conscientiousLabel = new System.Windows.Forms.Label();
             this.neuroticLabel = new System.Windows.Forms.Label();
             this.agreeableLabel = new System.Windows.Forms.Label();
             this.openLabel = new System.Windows.Forms.Label();
@@ -127,15 +127,15 @@
             this.requestPin.UseVisualStyleBackColor = false;
             this.requestPin.Click += new System.EventHandler(this.requestPin_Click);
             // 
-            // label1
+            // userNamelabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 127);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "User";
-            this.label1.Click += new System.EventHandler(this.label1_Click_2);
+            this.userNamelabel.AutoSize = true;
+            this.userNamelabel.Location = new System.Drawing.Point(7, 127);
+            this.userNamelabel.Name = "userNamelabel";
+            this.userNamelabel.Size = new System.Drawing.Size(38, 17);
+            this.userNamelabel.TabIndex = 7;
+            this.userNamelabel.Text = "User";
+            this.userNamelabel.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // pictureBox
             // 
@@ -496,12 +496,12 @@
             // 
             // Conscientious
             // 
-            this.Conscientious.AutoSize = true;
-            this.Conscientious.Location = new System.Drawing.Point(691, 620);
-            this.Conscientious.Name = "Conscientious";
-            this.Conscientious.Size = new System.Drawing.Size(69, 17);
-            this.Conscientious.TabIndex = 43;
-            this.Conscientious.Text = "Surprise: ";
+            this.conscientiousLabel.AutoSize = true;
+            this.conscientiousLabel.Location = new System.Drawing.Point(691, 620);
+            this.conscientiousLabel.Name = "Conscientious";
+            this.conscientiousLabel.Size = new System.Drawing.Size(69, 17);
+            this.conscientiousLabel.TabIndex = 43;
+            this.conscientiousLabel.Text = "Surprise: ";
             // 
             // neuroticLabel
             // 
@@ -673,7 +673,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.negativeBar);
             this.Controls.Add(this.posotiveBar);
-            this.Controls.Add(this.Conscientious);
+            this.Controls.Add(this.conscientiousLabel);
             this.Controls.Add(this.neuroticLabel);
             this.Controls.Add(this.agreeableLabel);
             this.Controls.Add(this.openLabel);
@@ -705,7 +705,7 @@
             this.Controls.Add(this.followers);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.pictureBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.userNamelabel);
             this.Controls.Add(this.requestPin);
             this.Controls.Add(this.error);
             this.Controls.Add(this.userName);
@@ -731,7 +731,7 @@
         private System.Windows.Forms.TextBox userName;
         private System.Windows.Forms.Label error;
         private System.Windows.Forms.Button requestPin;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label userNamelabel;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader Tweets;
@@ -762,7 +762,7 @@
         private System.Windows.Forms.Label polarGraph2Conscientious;
         private System.Windows.Forms.Label polarGraph2Open;
         private System.Windows.Forms.Label polarGraph2Extrovert;
-        private System.Windows.Forms.Label Conscientious;
+        private System.Windows.Forms.Label conscientiousLabel;
         private System.Windows.Forms.Label neuroticLabel;
         private System.Windows.Forms.Label agreeableLabel;
         private System.Windows.Forms.Label openLabel;

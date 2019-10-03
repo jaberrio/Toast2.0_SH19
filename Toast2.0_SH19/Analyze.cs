@@ -9,9 +9,10 @@ using Tweetinvi.Models;
 
 namespace Toast2._0_SH19
 {
+
     class TTweet
     {
-        public class subjectivity{
+        public class subjectivity {
             public bool strong = false;
             public bool positive = false;
 
@@ -22,7 +23,7 @@ namespace Toast2._0_SH19
             }
         };
         public
-            int 
+            int
             joy,
             fear,
             anger,
@@ -33,12 +34,12 @@ namespace Toast2._0_SH19
         public int numWords;
         public List<subjectivity> subjectivities;
 
-        public enum positive { ALL = 2, POSITIVE = 1, NEGATIVE = 0};
-        public enum strong { ALL = 2,STRONG = 1, WEAK = 0};
+        public enum positive { ALL = 2, POSITIVE = 1, NEGATIVE = 0 };
+        public enum strong { ALL = 2, STRONG = 1, WEAK = 0 };
 
         public positive pos;
         public strong str;
-        public int getSubHits(positive p ,strong s)
+        public int getSubHits(positive p, strong s)
         {
             int count = 0;
             foreach (var item in subjectivities)
@@ -46,8 +47,8 @@ namespace Toast2._0_SH19
                 //POSITIVE POSITIVE
                 if (item.positive == true && (p == positive.POSITIVE || p == positive.ALL))
                 {
-                    if(item.strong == true  && (s == strong.STRONG  || s == strong.ALL))count++;
-                    if(item.strong == false && (s == strong.WEAK    || s == strong.ALL))count++;
+                    if (item.strong == true && (s == strong.STRONG || s == strong.ALL)) count++;
+                    if (item.strong == false && (s == strong.WEAK || s == strong.ALL)) count++;
                 }
                 if (item.strong == false && (p == positive.NEGATIVE || p == positive.ALL))
                 {
@@ -72,7 +73,7 @@ namespace Toast2._0_SH19
             sadness,
             surprise;
         public
-            double 
+            double
             tweetLength,
             positivity; //How positive a persons tweets are
     }
@@ -86,7 +87,7 @@ namespace Toast2._0_SH19
             this.e = e;
             this.word = word;
         }
-        
+
     }
     class wordSb
     {
@@ -103,7 +104,7 @@ namespace Toast2._0_SH19
     }
 
     class Analyze
-    {
+    {        
         List<wordE> wordEs;
         List<wordSb> wordSbs;
         List<string> topN;
@@ -120,7 +121,7 @@ namespace Toast2._0_SH19
                 wordCountList[word]++;
             else
                 wordCountList[word] = 1;
-            
+
         }
 
 
@@ -129,7 +130,7 @@ namespace Toast2._0_SH19
             wordEs = new List<wordE>(1000);
             wordSbs = new List<wordSb>(1000);
 
-            
+
 
             string line;
             StreamReader file = new System.IO.StreamReader("DataClassify/emotions.csv");
@@ -143,7 +144,7 @@ namespace Toast2._0_SH19
             while ((line = file.ReadLine()) != null)
             {
                 var s = line.Split(',');
-                wordSbs.Add(new wordSb(s[0],s[1],s[2]));
+                wordSbs.Add(new wordSb(s[0], s[1], s[2]));
             }
         }
         public TTweet AnalyzeSingle(ITweet tweet)
@@ -158,7 +159,7 @@ namespace Toast2._0_SH19
             pullSubjectiviityOut(words, temp);
             return temp;
         }
-        
+
         //Updates the tweets score of the 6 traits based on emotions
         public void pullSixOut(string[] words, TTweet temp)
         {
@@ -197,7 +198,7 @@ namespace Toast2._0_SH19
             }
 
         }
-        
+
         public void pullSubjectiviityOut(string[] words, TTweet temp)
         {
             temp.subjectivities = new List<TTweet.subjectivity>();
@@ -246,7 +247,7 @@ namespace Toast2._0_SH19
             }
         }
 
-        private TTweetList AnalyzeList(IEnumerable<ITweet> tweets, IUser user)
+        private TTweetList AnalyzeList(IEnumerable<ITweet> tweets)
         {
             var tempList = new TTweetList();
             var temp = new List<TTweet>();
@@ -265,7 +266,7 @@ namespace Toast2._0_SH19
 
                 tempPos += f.getSubHits(TTweet.positive.POSITIVE, TTweet.strong.ALL);
                 tempNeg += f.getSubHits(TTweet.positive.NEGATIVE, TTweet.strong.ALL);
-         
+
                 wordCounter += f.numWords;
                 tempList.anger += f.anger;
                 tempList.disgust += f.disgust;
@@ -283,37 +284,37 @@ namespace Toast2._0_SH19
                 tempNeg = tempNeg / tweetCounter;
             }
 
-            
-            double c = 35+((tempPos - tempNeg*.5)/(tempPos + tempNeg*.5)*500);
+
+            double c = 35 + ((tempPos - tempNeg * .5) / (tempPos + tempNeg * .5) * 500);
             if (tempPos == 0 && tempNeg == 0) c = 0;
             Console.WriteLine(tempPos + "||" + tempNeg);
             c = (c >= 100) ? 100 : c;
             c = (c <= -100) ? -100 : c;
             tempList.positivity = c;
 
-            tempList.size = 
-                tempList.anger + 
-                tempList.disgust + 
-                tempList.fear + 
-                tempList.joy + 
-                tempList.surprise + 
+            tempList.size =
+                tempList.anger +
+                tempList.disgust +
+                tempList.fear +
+                tempList.joy +
+                tempList.surprise +
                 tempList.sadness;
-            
+
             wordCountList = wordCountList.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
 
             topN = new List<string>();
             int countt = 0;
             string line;
-            
-            
+
+
             foreach (var item in wordCountList)
-                {
+            {
                 StreamReader file = new System.IO.StreamReader("DataClassify/NounList.csv");
                 while ((line = file.ReadLine()) != null)
                 {
                     if (item.Key.Equals(line) && countt < 10)
                     {
-                        
+
                         topN.Add(item.Key);
                         countt++;
                         if (countt > 10) return tempList;
@@ -323,53 +324,51 @@ namespace Toast2._0_SH19
 
             return tempList;
         }
-            
-        enum emo { joy = 0,fear = 1,anger = 2,disgust = 3,sadness =4 ,surprise = 5};
-        public Dictionary<string, double> getPersonalities(IEnumerable<ITweet> tweets, IUser user)
+
+        public Dictionary<string, double> getPersonalities(IEnumerable<ITweet> tweets)
         {
-            
-            var _list = AnalyzeList(tweets, user);
+            var _list = AnalyzeList(tweets);
             var map = new Dictionary<string, double>();
-
             var emotion = new double[6];
+            
+            double[] emoIC = new double[] {
+                _list.joy,
+                _list.fear,
+                _list.disgust,
+                _list.surprise,
+                _list.sadness,
+                _list.anger
+            };
+            
+            for (int i = 0; i < 6; i++)
+                emotion[i] = Math.Round((emoIC[i] / _list.size) * Const.weights[i], 3) * 100;
 
-            emotion[(int)emo.joy] =     Math.Round((((double)_list.joy        / (double)_list.size)*0.54) ,3)*100;
-            emotion[(int)emo.fear] =    Math.Round((((double)_list.fear       / (double)_list.size)*0.88d),3)*100;
-            emotion[(int)emo.anger] =   Math.Round((((double)_list.anger      / (double)_list.size)*0.98d),3)*100;
-            emotion[(int)emo.disgust] = Math.Round((((double)_list.disgust    / (double)_list.size)*0.84d),3)*100;
-            emotion[(int)emo.sadness] = Math.Round((((double)_list.sadness    / (double)_list.size)*0.87d),3)*100;
-            emotion[(int)emo.surprise] =Math.Round((((double)_list.surprise   / (double)_list.size)*0.86d),3)*100;
+            for (int i = 0; i < 6; i++)
+                map.Add(Const.emoS[i], emotion[i]);
+            
+            double[] bigIC = new double[5];
 
-            map.Add("Joy",      emotion[(int)emo.joy]);        
-            map.Add("Fear",     emotion[(int)emo.fear]);       
-            map.Add("Anger",    emotion[(int)emo.anger]);      
-            map.Add("Disgust",  emotion[(int)emo.disgust]);    
-            map.Add("Sadness",  emotion[(int)emo.sadness]);    
-            map.Add("Surprise", emotion[(int)emo.surprise]);   
+            var logicW = Const.logicWeight;
 
-            double neurotic = emotion[(int)emo.fear] * 0.5 + emotion[(int)emo.sadness] * 0.9 + emotion[(int)emo.anger] * 0.5;
-            double agreeable = emotion[(int)emo.joy] - emotion[(int)emo.disgust] * 0.5 - emotion[(int)emo.anger] * 0.4;
-            double open = emotion[(int)emo.surprise] - emotion[(int)emo.disgust] * 0.5 - emotion[(int)emo.fear] * 0.4 + emotion[(int)emo.joy] * 0.3;
-            double extrovert = emotion[(int)emo.joy] * 0.7 + emotion[(int)emo.surprise] * 0.6 - emotion[(int)emo.sadness] * 0.4 - emotion[(int)emo.fear] * 0.3;
-            double conscientious = emotion[(int)emo.joy] + emotion[(int)emo.disgust] * 0.8 - emotion[(int)emo.anger] * 0.2;
+            for (int i = 0; i < 45; i += 11)
+                bigIC[i/11] =            emotion[(int)logicW[i  ]] * logicW[i+1] 
+                         + logicW[i+2] * emotion[(int)logicW[i+3]] * logicW[i+4]
+                         + logicW[i+5] * emotion[(int)logicW[i+6]] * logicW[i+7]
+                         + logicW[i+8] * emotion[(int)logicW[i+9]] * logicW[i+10];
 
-            if (neurotic < 0)       neurotic = 0;
-            if (agreeable < 0)      agreeable = 0;
-            if (open < 0)           open = 0;
-            if (extrovert < 0)      extrovert = 0;
-            if (conscientious < 0)  conscientious = 0;
+            for (int i = 0; i < 5; i++)
+                bigIC[i] = bigIC[i] < 0 ? 0 : bigIC[i];
 
-            double personalityTotal = neurotic + agreeable + open + extrovert + conscientious;
+            double personalityTotal = bigIC.Sum();
+            
+            for (int i = 0; i < 5; i++)
+                map.Add(Const.bigS[i], (Math.Round(bigIC[i] / personalityTotal, 3) * 100));
 
-            map.Add("Neurotic",       (Math.Round((double)neurotic      / (double)personalityTotal, 3) * 100));
-            map.Add("Agreeable",      (Math.Round((double)agreeable     / (double)personalityTotal, 3) * 100));
-            map.Add("Open",           (Math.Round((double)open          / (double)personalityTotal, 3) * 100));
-            map.Add("Extrovert",      (Math.Round((double)extrovert     / (double)personalityTotal, 3) * 100));
-            map.Add("Conscientious",  (Math.Round((double)conscientious / (double)personalityTotal, 3) * 100));
             map.Add("Total",          (Math.Round((double)personalityTotal, 2) * 100));
             map.Add("Positivity",     (Math.Round((double)_list.positivity, 2)));
 
             return map;
+            
         }
     }              
 }

@@ -19,136 +19,99 @@ namespace Toast2._0_SH19
 
     public partial class LogIn : Form
     {
-
+        
         public LogIn()
         {
             InitializeComponent();
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            
         }
 
-        ITwitterCredentials appCreds = Auth.SetApplicationOnlyCredentials("eGr9HEC4100Ru5ysWQC4JtODI", "xsYHSKZ54y9cgl1zwq4L21FXgrAj5bzkMWjBk0BdLhLRyiiIiT", true);
-
+                                  
+         
         private void requestPin_Click(object sender, EventArgs e)
         {
-            var us = User.GetUserFromScreenName(userName.Text);
-
-            try
-            {
-                label1.Text = us.Name;
-                error.Text = "";
-            }
-            catch (Exception r)
-            {
+            var ls = new LogicStepper(userName.Text);
+                      
+            
+            if(ls.us.Name == null)
+            {           
                 error.Text = "The user you have entered is incorrect, please try again";
                 return;
             }
 
+            userNamelabel.Text = ls.us.Name;
+            
+            followers.Text = "Followers: " + ls.us.FollowersCount.ToString();
+            following.Text = "Following: " + ls.us.FriendsCount.ToString();
 
-            followers.Text = "Followers: " + us.FollowersCount.ToString();
-            following.Text = "Following: " + us.FriendsCount.ToString();
+            var tweets = ls.getTweets();
 
-            var utp = new UserTimelineParameters
-            {
-                MaximumNumberOfTweetsToRetrieve = 300
-            };
-
-            var tweets = Timeline.GetUserTimeline(us, utp);
-
-            WebClient wc = new WebClient();
-            byte[] bytes = wc.DownloadData(us.ProfileImageUrlFullSize);
-            MemoryStream ms = new MemoryStream(bytes);
-            System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
-            pictureBox.Image = img;
+            pictureBox.Image = ls.getPicture();
             pictureBox.Update();
             pictureBox.BackColor = Color.Transparent;
             pictureBox.BorderStyle = BorderStyle.None;
 
             listView1.Items.Clear();
+
             int tweetCount = 0;
-            if (tweets.Count<ITweet>() == 0) return;
+
+            tweets = ls.getTweets();        
+
             foreach (var item in tweets)
             {
                 tweetCount++;
                 listView1.Items.Add(item.Text);
             }
+            
             tweetNum.Text = "# of tweets calculated: " + tweetCount;
             Analyze a = new Analyze();
-            var z = a.getPersonalities(tweets, us);
+            var z = a.getPersonalities(tweets);
             double _tval = 0;
 
             foreach (var item in a.getListViewStringTop())
             {
                 listView5.Items.Add(item);
             }
-            var emoS = new string[] { "Joy", "Fear", "Disgust", "Surprise", "Sadness", "Anger" };
-            var bigS = new string[] { "Neurotic", "Agreeable", "Open", "Extroverted", "Conscientious" };
-
-
-            chart2.Series["Data2"].Points.Clear();
-            for (int i = 0; i < bigS.Length; i++)
-            {
-            z.TryGetValue(bigS[i], out _tval);
-            chart2.Series["Data2"].Points.AddXY(i, _tval);
-            }
-
-            var followersHave = User.GetFollowers(us,250);
-
-            z.TryGetValue("Joy", out _tval);
-            joyLabel.Text = "Joy: " + _tval;
             
-            z.TryGetValue("Fear", out _tval);
-            fearLabel.Text = "Fear: " + _tval;
+
+            listView2.Items.Clear();
+            listView3.Items.Clear();
+
+            var followersHave = ls.us.GetFollowers(10);
+            var followingHave = ls.us.GetFriends(10);
+
+            foreach (var item in followersHave)
+                listView2.Items.Add(item.ScreenName);
+
+            foreach (var item in followingHave)
+                listView3.Items.Add(item.ScreenName);
             
-            z.TryGetValue("Disgust", out _tval);
-            disgustLabel.Text = "Disgust: " + _tval;
             
-            z.TryGetValue("Surprise", out _tval);
-            surpriseLabel.Text = "Surprise: " + _tval;
+            var emoLabel = new Label[] { joyLabel, fearLabel, disgustLabel, surpriseLabel, sadnessLabel, angerLabel };
+            var bigLabel = new Label[] { neuroticLabel, agreeableLabel, openLabel, extrovertLabel, conscientiousLabel };
 
-            z.TryGetValue("Sadness", out _tval);
-            sadnessLabel.Text = "Sadness: " + _tval;
-
-            z.TryGetValue("Anger", out _tval);
-            angerLabel.Text = "Anger: " + _tval;
-                                    
-
-
-            z.TryGetValue("Neurotic", out _tval);
-            neuroticLabel.Text = "Neurotic: " + _tval;
-
-            z.TryGetValue("Agreeable", out _tval);
-            agreeableLabel.Text = "Agreeable: " + _tval;
-
-            z.TryGetValue("Open", out _tval);
-            openLabel.Text = "Open: " + _tval;
-
-            z.TryGetValue("Extrovert", out _tval);
-            extrovertLabel.Text = "Extrovert: " + _tval;
-
-            z.TryGetValue("Conscientious", out _tval);
-            Conscientious.Text = "Conscientious: " + _tval;
-                        
+            
+            
 
             chart1.Series["Data1"].Points.Clear();
-            for (int i = 0; i < emoS.Length; i++)
-            {
-                z.TryGetValue(emoS[i], out _tval);
-                chart1.Series["Data1"].Points.AddXY(i, _tval);
-            }
-            
-            listView2.Items.Clear();
-            
-            foreach (var item in followersHave)
-            {
-                listView2.Items.Add(item.ScreenName);
-            }
-            var followingHave = User.GetFriends(us, 1000);
+            chart2.Series["Data2"].Points.Clear();
 
-            listView3.Items.Clear();
-            foreach (var item in followingHave)
+            for (int i = 0; i < Const.bigS.Length; i++)
             {
-                listView3.Items.Add(item.ScreenName);
+                z.TryGetValue(Const.bigS[i], out _tval);
+                chart2.Series["Data2"].Points.AddXY(i, _tval);
+                bigLabel[i].Text = Const.bigS[i] + ": " + _tval;
             }
+
+
+            for (int i = 0; i < Const.emoS.Length; i++)
+            {
+                z.TryGetValue(Const.emoS[i], out _tval);
+                chart1.Series["Data1"].Points.AddXY(i, _tval);
+                emoLabel[i].Text = Const.emoS[i] + ": " + _tval;
+            }
+
             z.TryGetValue("Positivity", out _tval);
             if (_tval < 0)
             {
@@ -159,10 +122,10 @@ namespace Toast2._0_SH19
             {
                 negativeBar.Value = 0;
                 posotiveBar.Value = (int)_tval;
-            }
+            }                                  
 
-        }
-
+        }                             
+                                                        
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Close();

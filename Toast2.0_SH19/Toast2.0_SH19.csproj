@@ -164,6 +164,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analyze.cs" />
+    <Compile Include="Const.cs" />
+    <Compile Include="LogicStepper.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
