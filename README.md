@@ -6,7 +6,7 @@ Date started: 9/20/2019
 Date submitted: 9/22/2019
 
 
-DOWNLOAD FOR WINDOWS IS Release.zip
+DOWNLOAD FOR WINDOWS IS Release.zip, Extract before use and open the exe file "Toast2.0_SH19.exe"
 
 Project name: Twitter Tweet Tracker
   Twitter Tweet Tracker takes in tweet and follower data from individuals and generates a five-personality model, six emotion model,
@@ -31,4 +31,5 @@ Additional resources:
     - Used to generate polar chart information from emotion data
   emotions dataset
     - Used to classify emotion data from the words used in tweets 
+    ![](Resourses/Images/NasaScreenshot.PNG)
   
