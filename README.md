@@ -9,6 +9,8 @@ Date submitted: 9/22/2019
 DOWNLOAD FOR WINDOWS IS Release.zip, Extract before use and open the exe file "Toast2.0_SH19.exe"
 
 Project name: Twitter Tweet Tracker
+
+
   Twitter Tweet Tracker takes in tweet and follower data from individuals and generates a five-personality model, six emotion model,
   subjectivity bar, frequency table, and various tweet charts. This application is deisgned to identify at risk or unsable twitter users.
   Using word analysis and key context clues, we can create a model of a twitter user who might be experiencing distress and other abnormal
